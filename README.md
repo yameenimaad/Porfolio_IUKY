@@ -6,7 +6,7 @@
 
 ## 🖥️ SYSTEM_INTERFACE_PREVIEW
 > *Drag and drop a screenshot of your website here to show off the dark mode dashboard!*
-![Interface Preview](img/Porfolio-ss.png)
+![Interface Preview](img/Portfolio-ss.png)
 
 ---
 
