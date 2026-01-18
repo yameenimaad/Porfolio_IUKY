@@ -28,7 +28,7 @@ This portfolio is a high-performance, single-page application (SPA) designed wit
 
 ## 🚀 DEPLOYMENT
 System is live and hosted via GitHub Pages.
-**Link:** [https://yameenimaad.github.io/Portfolio_IUKY/]([https://yameenimaad.github.io/Portfolio_IUKY/](https://yameenimaad.github.io/Porfolio_IUKY/))
+**Link:** [https://yameenimaad.github.io/Portfolio_IUKY/]([https://yameenimaad.github.io/Portfolio_IUKY/])
 
 ---
 > *“Efficiency is doing things right; effectiveness is doing the right things.”*
