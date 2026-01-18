@@ -1,34 +1,45 @@
-# [SYSTEM_IDENTIFIER]: INDUSTRIAL_PORTFOLIO_V2
+# [SYSTEM_LOG]: INDUSTRIAL_PORTFOLIO_V2
 **Operator:** Engr. Imaad Ullah Khan Yameen  
-**Status:** READY_FOR_DEPLOYMENT  
-**Role:** Industrial Engineer | CAD Designer | Automation Specialist
+**Link:** [https://yameenimaad.github.io/Porfolio_IUKY/](https://yameenimaad.github.io/Porfolio_IUKY/)
 
 ---
 
-## 🛠 TECHNICAL_SPECS.sys
-This portfolio is a high-performance, single-page application (SPA) designed with an industrial dashboard aesthetic. It serves as a centralized terminal for project documentation, technical certifications, and operational metrics.
-
-### 🏗 ARCHITECTURE
-* **Engine:** HTML5 / Tailwind CSS
-* **Logic:** JavaScript (Real-time PKT Clock & Dark Mode System)
-* **UI Framework:** Industrial Dashboard Design (Custom "Stomp" Interaction Logic)
-* **Documentation:** Integrated Cloud-Linked Archive (Google Drive API Preview)
-
-### 📊 CORE_CAPABILITIES
-* **Process Optimization:** Lean Six Sigma (Yellow Belt), Kaizen, 5S.
-* **Digital Design:** SolidWorks, AutoCAD, Fusion360.
-* **AI Integration:** NVIDIA Deep Learning Institute Training.
-* **Quality Management:** ISO 9001:2015 QMS Compliance.
+## 🖥️ SYSTEM_INTERFACE_PREVIEW
+> *Drag and drop a screenshot of your website here to show off the dark mode dashboard!*
+![Interface Preview](img/porfolio-ss.png)
 
 ---
 
-## 📂 PROJECT_ARCHIVE
-* **FYDP:** UAV for Inventory Automation @ Northern Bottling (3rd Position Awarded).
-* **CAD Portfolio:** Advanced 3D modeling and additive manufacturing (Prusa Slicer).
+## 🛠️ TECHNICAL_SPECIFICATIONS
+This terminal is built to showcase high-efficiency engineering operations and CAD design capabilities.
 
-## 🚀 DEPLOYMENT
-System is live and hosted via GitHub Pages.
-**Link:** [https://yameenimaad.github.io/Portfolio_IUKY/]([https://yameenimaad.github.io/Portfolio_IUKY/])
+### 🏗️ CORE_STACK
+- **Frontend:** HTML5 / Tailwind CSS (Industrial UI Kit)
+- **Logic:** JavaScript (Dynamic PKT Time-Sync & Theme Engine)
+- **Deployment:** GitHub Pages (Automated CI/CD)
+
+### 📊 OPERATIONAL_METRICS
+- **Academic:** 3.75/4.00 CGPA (UET Peshawar)
+- **Quality:** Six Sigma Yellow Belt & ISO 9001:2015 Compliant
+- **Automation:** NVIDIA Deep Learning Institute Certified
 
 ---
-> *“Efficiency is doing things right; effectiveness is doing the right things.”*
+
+## 📁 DOCUMENT_ARCHIVE
+The following technical records are accessible via the live dashboard:
+1. **Full_Resume_2026.pdf** - Professional IE Work History
+2. **Training_Credentials** - Multi-doc folder containing Lean & AI certifications
+3. **FYDP_Technical_Specs** - UAV Inventory Automation Project (3rd Position Awarded)
+
+---
+
+## 📸 PROJECT_GALLERY
+> *Drop a picture of your CAD models or your FYDP drone here!*
+![Technical Design](img/FYDP.png)
+
+---
+
+## 📟 CONTACT_ACCESS
+- **LinkedIn:** [Imaad Ullah Khan Yameen](https://www.linkedin.com/in/imaad-ullah-khan-yameen/)
+- **Email:** yameenimaad@gmail.com
+- **Status:** `[READY_FOR_DEPLOYMENT]`
