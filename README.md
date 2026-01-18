@@ -5,7 +5,7 @@
 ---
 
 ## 🖥️ SYSTEM_INTERFACE_PREVIEW
-> *Drag and drop a screenshot of your website here to show off the dark mode dashboard!*
+
 ![Interface Preview](img/Portfolio-ss.png)
 
 ---
@@ -34,7 +34,7 @@ The following technical records are accessible via the live dashboard:
 ---
 
 ## 📸 PROJECT_GALLERY
-> *Drop a picture of your CAD models or your FYDP drone here!*
+
 ![Technical Design](img/FYDP.png)
 
 ---
