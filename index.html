@@ -234,38 +234,39 @@
                 </div>
             </a>
 
-            <div class="industrial-card group overflow-hidden">
-                <div class="relative w-full aspect-video bg-black overflow-hidden border-b-2 border-industrial-steel">
-                    <video 
-                        id="fydp-video-feed"
-                        autoplay 
-                        muted 
-                        loop 
-                        playsinline
-                        class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
-                    >
-                        <source src="vid/FYDP.mp4" type="video/mp4"></video>
-                    <div class="absolute inset-0 pointer-events-none scanline-effect opacity-10"></div>
-                    <div class="absolute top-2 left-2 flex items-center gap-2 bg-black/40 px-2 py-1 backdrop-blur-sm">
-                        <span class="flex h-1.5 w-1.5">
-                            <span class="animate-ping absolute inline-flex h-1.5 w-1.5 rounded-full bg-industrial-orange opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-industrial-orange"></span>
-                        </span>
-                        <span class="text-[8px] font-bold text-white tracking-widest mono uppercase">Feed: Drone_Cam_01</span>
+                <div class="industrial-card group overflow-hidden">
+                    <div class="relative w-full aspect-video bg-black overflow-hidden border-b-2 border-industrial-steel">
+                        <video 
+                            id="fydp-video-feed"
+                            autoplay 
+                            muted 
+                            loop 
+                            playsinline
+                            class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700"
+                        >
+                            <source src="vid/@UAV Inventory Control System, Batch 21-24, Uet Peshawar Jalozai Campus. (1).mp4" type="video/mp4">
+                        </video>
+                
+                        <div class="absolute inset-0 pointer-events-none scanline-effect opacity-10"></div>
+                        <div class="absolute top-2 left-2 flex items-center gap-2 bg-black/60 px-2 py-1 backdrop-blur-sm border border-white/10">
+                            <span class="flex h-1.5 w-1.5">
+                                <span class="animate-ping absolute inline-flex h-1.5 w-1.5 rounded-full bg-industrial-orange opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-industrial-orange"></span>
+                            </span>
+                            <span class="text-[8px] font-bold text-white tracking-widest mono uppercase">UET_JALOZAI_FEED: 21-24</span>
+                        </div>
                     </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-2">
+                
+                    <div class="p-6">
                         <h4 class="font-bold text-sm uppercase group-hover:text-industrial-orange transition">FYDP_Technical_Specs</h4>
-                        <span class="text-[9px] font-black opacity-40 uppercase tracking-tighter">PROJECT_SPECS</span>
+                        <p class="text-[10px] opacity-70 mb-4 uppercase tracking-tighter">UAV Inventory Automation System</p>
+                        
+                        <a href="https://drive.google.com/file/d/1-nX0OJEa9G_RHR4_aM05yYP-ui5fNZ0y/preview" target="_blank" 
+                           class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-[10px] font-bold hover:text-industrial-orange transition">
+                            <i class="fas fa-eye"></i> VIEW_SYSTEM_ARCHIVE.log
+                        </a>
                     </div>
-                    <p class="text-[10px] opacity-70 mb-4 uppercase tracking-tighter">UAV Inventory Automation @ Northern Bottling</p>
-                    <a href="https://drive.google.com/file/d/1-nX0OJEa9G_RHR4_aM05yYP-ui5fNZ0y/preview" target="_blank" 
-                       class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-[10px] font-bold hover:text-industrial-orange transition">
-                        <i class="fas fa-eye"></i> VIEW_FULL_REPORTS.log
-                    </a>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -366,16 +367,18 @@
             icon.classList.toggle('fa-cloud');
             icon.classList.toggle('fa-bolt');
         });
-    document.addEventListener('DOMContentLoaded', function() {
-    const fydpVideo = document.getElementById('fydp-video-feed');
-    if (fydpVideo) {
-        fydpVideo.playbackRate = 0.6; // Changes speed to slow motion
-    }
-});
+        document.addEventListener('DOMContentLoaded', function() {
+            const v = document.getElementById('fydp-video-feed');
+            if (v) {
+                // 0.4 sets the video to 40% speed for a dreamy, technical slow-mo look
+                v.playbackRate = 0.4; 
+            }
+        });
     </script>
 </body>
 
 </html>
+
 
 
 
