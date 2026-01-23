@@ -82,6 +82,20 @@
             font-size: 1.25rem;
             font-weight: 800;
         }
+
+        .scanline-effect {
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(0, 0, 0, 0.4) 51%
+            );
+            background-size: 100% 4px;
+        }
+        
+        #fydp-video-feed {
+            filter: sepia(0.2) contrast(1.1) brightness(0.8);
+        }
+        
     </style>
 </head>
 <body class="text-slate-900 dark:text-slate-100">
@@ -220,34 +234,115 @@
                 </div>
             </a>
 
-            <a href="https://drive.google.com/file/d/1-nX0OJEa9G_RHR4_aM05yYP-ui5fNZ0y/preview" target="_blank" class="industrial-card p-6 block group">
-                <div class="flex justify-between items-start mb-4">
-                    <i class="fas fa-microchip text-2xl text-industrial-orange"></i>
-                    <span class="text-[9px] font-black opacity-40 uppercase tracking-tighter">PROJECT_SPECS</span>
+            <div class="industrial-card group overflow-hidden">
+                <div class="relative w-full aspect-video bg-black overflow-hidden border-b-2 border-industrial-steel">
+                    <video 
+                        id="fydp-video-feed"
+                        autoplay 
+                        muted 
+                        loop 
+                        playsinline
+                        class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
+                    >
+                        <source src="img/fydp-demo.mp4" type="video/mp4">
+                    </video>
+            
+                    <div class="absolute inset-0 pointer-events-none scanline-effect opacity-10"></div>
+                    
+                    <div class="absolute top-2 left-2 flex items-center gap-2 bg-black/40 px-2 py-1 backdrop-blur-sm">
+                        <span class="flex h-1.5 w-1.5">
+                            <span class="animate-ping absolute inline-flex h-1.5 w-1.5 rounded-full bg-industrial-orange opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-industrial-orange"></span>
+                        </span>
+                        <span class="text-[8px] font-bold text-white tracking-widest mono uppercase">Feed: Drone_Cam_01</span>
+                    </div>
                 </div>
-                <h4 class="font-bold text-sm mb-1 uppercase group-hover:text-industrial-orange transition">FYDP_Technical_Specs</h4>
-                <p class="text-[10px] opacity-70">UAV Inventory Automation @ Northern Bottling</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-[10px] font-bold">
-                    <i class="fas fa-eye"></i> VIEW_REPORTS.log
+            
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-sm uppercase group-hover:text-industrial-orange transition">FYDP_Technical_Specs</h4>
+                        <span class="text-[9px] font-black opacity-40 uppercase tracking-tighter">PROJECT_SPECS</span>
+                    </div>
+                    <p class="text-[10px] opacity-70 mb-4 uppercase tracking-tighter">UAV Inventory Automation @ Northern Bottling</p>
+                    
+                    <a href="https://drive.google.com/file/d/1-nX0OJEa9G_RHR4_aM05yYP-ui5fNZ0y/preview" target="_blank" 
+                       class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-[10px] font-bold hover:text-industrial-orange transition">
+                        <i class="fas fa-eye"></i> VIEW_FULL_REPORTS.log
+                    </a>
                 </div>
-            </a>
+            </div>
         </div>
     </section>
 
-    <footer class="mt-20 py-10 px-6 border-t-4 border-industrial-steel bg-industrial-steel text-white">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-[10px] space-y-1">
-                <p>// DESIGNED_BY: ENGR. IMAAD YAMEEN</p>
-                <p>// ENCRYPTION: 256-BIT_SSL</p>
-                <p>© 2026 IMAAD ULLAH KHAN YAMEEN </p>
-                <p>@ all rights received</p>
+<footer class="mt-20 py-12 px-6 border-t-4 border-industrial-steel bg-industrial-steel text-white">
+    <div class="max-w-7xl mx-auto">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12 pb-10 border-b border-white/10">
+            
+            <div class="space-y-4">
+                <h5 class="text-[10px] text-industrial-orange font-black tracking-[0.3em] uppercase">
+                    [01] VISUAL_STUDIO
+                </h5>
+                <ul class="space-y-2 text-[11px] opacity-80">
+                    <li><a href="#" class="hover:text-industrial-orange transition flex items-center gap-2">
+                        <i class="fas fa-palette w-4"></i> GRAPHIC_DESIGN_PORTFOLIO
+                    </a></li>
+                    <li><a href="#" class="hover:text-industrial-orange transition flex items-center gap-2">
+                        <i class="fas fa-cube w-4"></i> 3D_CAD_ARCHIVE
+                    </a></li>
+                </ul>
             </div>
-            <div class="flex gap-8 uppercase text-[10px] font-black tracking-widest">
-                <a href="mailto:yameenimaad@gmail.com" class="hover:text-industrial-orange transition">Email_Access</a>
-                <a href="https://www.linkedin.com/in/imaad-ullah-khan-yameen/" class="hover:text-industrial-orange transition">LinkedIn_Access</a>
+
+            <div class="space-y-4">
+                <h5 class="text-[10px] text-industrial-orange font-black tracking-[0.3em] uppercase">
+                    [02] EXTERNAL_NODES
+                </h5>
+                <ul class="space-y-2 text-[11px] opacity-80">
+                    <li><a href="https://github.com/yameenimaad" class="hover:text-industrial-orange transition flex items-center gap-2">
+                        <i class="fab fa-github w-4"></i> GITHUB_REPOSITORIES
+                    </a></li>
+                    <li><a href="#" class="hover:text-industrial-orange transition flex items-center gap-2">
+                        <i class="fab fa-behance w-4"></i> BEHANCE_SHOWCASE
+                    </a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h5 class="text-[10px] text-industrial-orange font-black tracking-[0.3em] uppercase">
+                    [03] CONNECT_PROTOCOL
+                </h5>
+                <ul class="space-y-2 text-[11px] opacity-80">
+                    <li><a href="https://www.linkedin.com/in/imaad-ullah-khan-yameen/" class="hover:text-industrial-orange transition flex items-center gap-2">
+                        <i class="fab fa-linkedin-in w-4"></i> LINKEDIN_TERMINAL
+                    </a></li>
+                    <li><a href="mailto:yameenimaad@gmail.com" class="hover:text-industrial-orange transition flex items-center gap-2">
+                        <i class="far fa-envelope w-4"></i> EMAIL_SECURE
+                    </a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-[10px] space-y-1 opacity-60 mono">
+                <p>// DESIGNED_BY: ENGR. IMAAD YAMEEN</p>
+                <p>// ENCRYPTION: 256-BIT_SSL_ACTIVE</p>
+                <p>// BUILD_STATUS: STABLE_V2.0</p>
+                <p>© 2026 IMAAD ULLAH KHAN YAMEEN • ALL_RIGHTS_RESERVED</p>
+            </div>
+            
+            <div class="flex gap-4">
+                <div class="bg-black/20 px-3 py-2 border border-white/5 flex items-center gap-3">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span class="text-[9px] mono tracking-widest uppercase">System_Online</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
 
     <script>
         // PKT Real-time Clock
@@ -273,10 +368,17 @@
             icon.classList.toggle('fa-cloud');
             icon.classList.toggle('fa-bolt');
         });
+    document.addEventListener('DOMContentLoaded', function() {
+    const fydpVideo = document.getElementById('fydp-video-feed');
+    if (fydpVideo) {
+        fydpVideo.playbackRate = 0.6; // Changes speed to slow motion
+    }
+});
     </script>
 </body>
 
 </html>
+
 
 
 
