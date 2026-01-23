@@ -35,7 +35,7 @@ The following technical records are accessible via the live dashboard:
 
 ## 📸 PROJECT_GALLERY
 
-![Technical Design](img/FYDP.png)
+![Technical Design](vid/FYDP.mp4)
 
 ---
 
