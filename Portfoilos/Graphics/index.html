@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAAD YAMEEN | DESIGN TERMINAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        design: {
+                            gold: '#FFB800',   // Cyber Gold
+                            dark: '#0A0A0A',   // Pitch Black
+                            surface: '#121212', // Card Surface
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=JetBrains+Mono&display=swap');
+        
+        body { 
+            font-family: 'Space Grotesk', sans-serif; 
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(255, 184, 0, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 184, 0, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .glass-card {
+            background: rgba(18, 18, 18, 0.8);
+            border: 1px solid rgba(255, 184, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            border-color: #FFB800;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 184, 0, 0.05);
+        }
+
+        .tech-badge {
+            font-family: 'JetBrains Mono';
+            font-size: 9px;
+            padding: 2px 8px;
+            border: 1px solid rgba(255, 184, 0, 0.3);
+            color: #FFB800;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="text-zinc-300">
+
+    <nav class="fixed w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-lg px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="mono text-[10px] tracking-[0.4em] text-design-gold font-bold">
+                IMAAD_YAMEEN // CREATIVE_CORE
+            </div>
+            <div class="flex gap-6 text-[9px] mono uppercase">
+                <a href="#spatial" class="hover:text-design-gold transition">3D_SPATIAL</a>
+                <a href="#graphics" class="hover:text-design-gold transition">GRAPHIC_SYSTEMS</a>
+                <a href="#motion" class="hover:text-design-gold transition">MOTION_ENGINE</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-48 pb-24 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 items-center gap-12">
+            <div>
+                <p class="mono text-design-gold text-xs mb-4 tracking-tighter uppercase">// MULTIDISCIPLINARY_DESIGNER</p>
+                <h1 class="text-7xl md:text-8xl font-bold tracking-tighter text-white mb-6 uppercase">
+                    Visual <br> <span class="text-design-gold">Intelligence.</span>
+                </h1>
+                <p class="text-lg opacity-70 leading-relaxed border-l-2 border-design-gold pl-6">
+                    Blending Industrial precision with Creative vision. Expert in 3D geometry optimization, 
+                    cinematic post-production, and high-impact visual communications.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass-card p-6 text-center">
+                    <h3 class="text-design-gold text-2xl font-bold mb-1">50+</h3>
+                    <p class="mono text-[9px] uppercase opacity-50">3D_RENDERS</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <h3 class="text-design-gold text-2xl font-bold mb-1">100+</h3>
+                    <p class="mono text-[9px] uppercase opacity-50">GRAPHIC_ASSETS</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="spatial" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-4xl font-bold text-white uppercase tracking-tighter">01. 3D_Spatial_Modeling</h2>
+            <div class="h-[1px] flex-grow bg-white/10"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card group overflow-hidden">
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-drafting-compass text-3xl text-design-gold"></i>
+                        <span class="mono text-[9px] opacity-40">SYSTEMS_DRIVEN</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">INDUSTRIAL CAD / CAM</h3>
+                    <p class="text-sm opacity-60 mb-6">High-precision mechanical modeling for manufacturing. Specialized in 3D assembly, tolerance analysis, and CNC path optimization.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">SolidWorks</span>
+                        <span class="tech-badge">Fusion 360</span>
+                        <span class="tech-badge">AutoCAD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card group overflow-hidden">
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-cube text-3xl text-design-gold"></i>
+                        <span class="mono text-[9px] opacity-40">VISUAL_DRIVEN</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">CREATIVE 3D & RENDERING</h3>
+                    <p class="text-sm opacity-60 mb-6">Conceptual spatial design and product visualization. Mastering topology, PBR texturing, and cinematic lighting environments.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Blender</span>
+                        <span class="tech-badge">Cycles/Eevee</span>
+                        <span class="tech-badge">Geometry Nodes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="graphics" class="py-20 px-6 max-w-7xl mx-auto bg-white/[0.02] border-y border-white/5">
+        <div class="flex items-center gap-4 mb-12">
+            <div class="h-[1px] flex-grow bg-white/10"></div>
+            <h2 class="text-4xl font-bold text-white uppercase tracking-tighter text-right">02. Graphic_Systems</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-card p-6">
+                <i class="fas fa-pen-nib text-design-gold mb-4 text-xl"></i>
+                <h4 class="font-bold text-sm mb-2 uppercase">Brand Identity</h4>
+                <p class="text-[11px] opacity-50">Logo architecture, typography systems, and color theory using Adobe Illustrator.</p>
+            </div>
+            <div class="glass-card p-6">
+                <i class="fas fa-images text-design-gold mb-4 text-xl"></i>
+                <h4 class="font-bold text-sm mb-2 uppercase">Poster Design</h4>
+                <p class="text-[11px] opacity-50">High-impact infographics and digital posters designed for professional visual comms.</p>
+            </div>
+            <div class="glass-card p-6">
+                <i class="fas fa-sliders-h text-design-gold mb-4 text-xl"></i>
+                <h4 class="font-bold text-sm mb-2 uppercase">Photo Mastery</h4>
+                <p class="text-[11px] opacity-50">Precision retouching and grading in Lightroom, Snapseed, and Photoshop.</p>
+            </div>
+            <div class="glass-card p-6">
+                <i class="fas fa-th-large text-design-gold mb-4 text-xl"></i>
+                <h4 class="font-bold text-sm mb-2 uppercase">Layout Design</h4>
+                <p class="text-[11px] opacity-50">Grid-based frame designing for web, print, and digital storytelling platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="motion" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-4xl font-bold text-white uppercase tracking-tighter">03. Motion_Post-Production</h2>
+            <div class="h-[1px] flex-grow bg-white/10"></div>
+        </div>
+
+        <div class="glass-card p-1">
+            <div class="grid lg:grid-cols-3">
+                <div class="p-8 border-b lg:border-b-0 lg:border-r border-white/5">
+                    <i class="fas fa-film text-design-gold mb-4"></i>
+                    <h5 class="font-bold uppercase mb-2">DaVinci Resolve</h5>
+                    <p class="text-xs opacity-50">Professional color grading, node-based compositing, and cinematic storytelling.</p>
+                </div>
+                <div class="p-8 border-b lg:border-b-0 lg:border-r border-white/5">
+                    <i class="fas fa-mobile-alt text-design-gold mb-4"></i>
+                    <h5 class="font-bold uppercase mb-2">Short-Form Motion</h5>
+                    <p class="text-xs opacity-50">Dynamic mobile editing using CapCut and advanced frame-by-frame transitions.</p>
+                </div>
+                <div class="p-8">
+                    <i class="fas fa-magic text-design-gold mb-4"></i>
+                    <h5 class="font-bold uppercase mb-2">Visual Effects</h5>
+                    <p class="text-xs opacity-50">Seamless integration of 2D graphics into motion video for high-engagement content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="mono text-[9px] uppercase opacity-40">
+                // SYSTEM_DESIGNED_BY: ENGR_IMAAD_YAMEEN <br>
+                // BUILD: 2026.01.22_STABLE
+            </div>
+            <div class="flex gap-8">
+                <a href="mailto:yameenimaad@gmail.com" class="text-design-gold hover:text-white transition uppercase mono text-[10px]">Email_Access</a>
+                <a href="https://linkedin.com/in/imaad-ullah-khan-yameen/" class="text-design-gold hover:text-white transition uppercase mono text-[10px]">LinkedIn_Access</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
