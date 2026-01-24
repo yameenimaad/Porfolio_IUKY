@@ -8,7 +8,7 @@ const moveSpeed = 0.04;
 let activeBiome;
 
 // Biome Rotation Logic
-const biomes = [spring, winter, autumn, summer, ocean, underground, space];
+const biomes = [Spring, Winter, Autumn, Summer, Ocean, Underground, Space];
 let biomeIdx = 0;
 
 function init() {
