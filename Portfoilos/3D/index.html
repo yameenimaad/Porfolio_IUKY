@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D World Portfolio</title>
+    <style>
+        /* 1. CSS STYLING */
+        body { margin: 0; overflow: hidden; background-color: #0a0a0a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        canvas { display: block; }
+
+        /* Instructions Overlay */
+        #controls-hint {
+            position: absolute; top: 20px; left: 20px; color: white;
+            background: rgba(0, 0, 0, 0.5); padding: 15px; border-radius: 8px;
+            pointer-events: none; border: 1px solid #444;
+        }
+
+        /* Modal Popup System */
+        #modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); display: flex;
+            justify-content: center; align-items: center; z-index: 100;
+        }
+        .hidden { display: none !important; }
+
+        .modal-content {
+            background: #1a1a1a; color: white; padding: 40px;
+            border-radius: 15px; max-width: 500px; position: relative;
+            border: 2px solid #00ff88; box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        #close-btn {
+            position: absolute; top: 15px; right: 20px;
+            font-size: 28px; cursor: pointer; color: #ff4444;
+        }
+
+        h2 { margin-top: 0; color: #00ff88; text-transform: uppercase; letter-spacing: 2px; }
+        p { line-height: 1.6; color: #ccc; }
+    </style>
+</head>
+<body>
+
+    <div id="controls-hint">
+        <strong>WASD</strong>: Move Camera<br>
+        <strong>Q / E</strong>: Rotate World<br>
+        <strong>Drag</strong>: Pan View<br>
+        <strong>Click Blocks</strong>: View Info
+    </div>
+
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <span id="close-btn">&times;</span>
+            <h2 id="modal-title">Title</h2>
+            <p id="modal-body">Content goes here...</p>
+        </div>
+    </div>
+
+    <canvas id="bg"></canvas>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        // --- SCENE SETUP ---
+        const scene = new THREE.Scene();
+        const canvas = document.querySelector('#bg');
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // --- CAMERA ---
+        const d = 65; 
+        let aspect = window.innerWidth / window.innerHeight;
+        const camera = new THREE.OrthographicCamera(-d * aspect, d * aspect, d, -d, 1, 1000);
+        
+        let cameraAngle = Math.PI / 4; 
+        const cameraDistance = 180;
+        const cameraAnchor = new THREE.Vector3(0, 0, 0);
+
+        // --- LIGHTING & SUN ---
+        const sunGeo = new THREE.SphereGeometry(15, 32, 32);
+        const sunMat = new THREE.MeshBasicMaterial({ color: 0xffcc00 });
+        const sunMesh = new THREE.Mesh(sunGeo, sunMat);
+        sunMesh.position.set(200, 150, -200);
+        scene.add(sunMesh);
+
+        const sunLight = new THREE.DirectionalLight(0xffffff, 1.8);
+        sunLight.position.copy(sunMesh.position);
+        scene.add(sunLight);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+
+        // --- DATA ---
+        const info = {
+            "About": "I am Imaad Yameen, a creative developer building immersive 3D web experiences.",
+            "Skills": "Expertise in JavaScript, Three.js, React, and UI/UX Design.",
+            "Education": "Bachelor's Degree in Computer Science - Constant Learner.",
+            "Work": "Experience in industrial-scale web applications and visualization.",
+            "Future": "Under Construction: 3D interactive AI experiments coming soon!"
+        };
+        const blocks = [];
+
+        // --- BUILDERS ---
+        function createHouse(name, x, z) {
+            const g = new THREE.Group();
+            const w = new THREE.Mesh(new THREE.BoxGeometry(20, 18, 20), new THREE.MeshStandardMaterial({ color: 0xeeeeee }));
+            w.position.y = 9;
+            const r = new THREE.Mesh(new THREE.ConeGeometry(18, 12, 4), new THREE.MeshStandardMaterial({ color: 0x8b4513 }));
+            r.position.y = 24; r.rotation.y = Math.PI / 4;
+            g.add(w, r); g.position.set(x, 0, z); g.name = name; scene.add(g); blocks.push(g);
+        }
+
+        function createFactory(name, x, z) {
+            const g = new THREE.Group();
+            const b = new THREE.Mesh(new THREE.BoxGeometry(25, 12, 20), new THREE.MeshStandardMaterial({ color: 0x555555 }));
+            b.position.y = 6;
+            const c = new THREE.Mesh(new THREE.CylinderGeometry(3, 3, 25, 12), new THREE.MeshStandardMaterial({ color: 0xaa4400 }));
+            c.position.set(8, 12, -6);
+            g.add(b, c); g.position.set(x, 0, z); g.name = name; scene.add(g); blocks.push(g);
+        }
+
+        function createBuilding(name, x, z) {
+            const g = new THREE.Group();
+            const t = new THREE.Mesh(new THREE.BoxGeometry(15, 45, 15), new THREE.MeshStandardMaterial({ color: 0x222222, metalness: 0.8 }));
+            t.position.y = 22.5; g.add(t);
+            g.position.set(x, 0, z); g.name = name; scene.add(g); blocks.push(g);
+        }
+
+        function createFarm(name, x, z) {
+            const g = new THREE.Group();
+            const s = new THREE.Mesh(new THREE.BoxGeometry(25, 2, 25), new THREE.MeshStandardMaterial({ color: 0x4d2926 }));
+            g.add(s);
+            for(let i = -2; i <= 2; i++) {
+                for(let j = -2; j <= 2; j++) {
+                    const crop = new THREE.Mesh(new THREE.BoxGeometry(2, 3, 2), new THREE.MeshStandardMaterial({ color: 0x2d5a27 }));
+                    crop.position.set(i * 4, 2, j * 4); g.add(crop);
+                }
+            }
+            g.position.set(x, 0, z); g.name = name; scene.add(g); blocks.push(g);
+        }
+
+        function createConstruction(name, x, z) {
+            const g = new THREE.Group();
+            const b = new THREE.Mesh(new THREE.BoxGeometry(20, 4, 20), new THREE.MeshStandardMaterial({ color: 0x888888 }));
+            const sign = new THREE.Mesh(new THREE.BoxGeometry(10, 6, 1), new THREE.MeshStandardMaterial({ color: 0xffa500 }));
+            sign.position.y = 15; sign.name = "sign";
+            g.add(b, sign); g.position.set(x, 0, z); g.name = name; scene.add(g); blocks.push(g);
+        }
+
+        // Initialize World Objects
+        createHouse("About", 0, 0);
+        createBuilding("Skills", 60, 0);
+        createFarm("Education", -60, 0);
+        createFactory("Work", 0, -60);
+        createConstruction("Future", 0, 60);
+
+        // --- INPUTS ---
+        const keys = { w: false, s: false, a: false, d: false, q: false, e: false };
+        const mouse = { x: 0, y: 0, smoothX: 0, smoothY: 0 };
+        let isDragging = false, prevMouse = { x: 0, y: 0 };
+
+        window.addEventListener('keydown', (e) => { if(keys.hasOwnProperty(e.key.toLowerCase())) keys[e.key.toLowerCase()] = true; });
+        window.addEventListener('keyup', (e) => { if(keys.hasOwnProperty(e.key.toLowerCase())) keys[e.key.toLowerCase()] = false; });
+        window.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = (e.clientX / window.innerWidth) - 0.5;
+            mouse.y = (e.clientY / window.innerHeight) - 0.5;
+            if (isDragging) {
+                const moveX = (e.clientX - prevMouse.x) * 0.2;
+                const moveZ = (e.clientY - prevMouse.y) * 0.2;
+                cameraAnchor.x -= Math.cos(cameraAngle) * moveX - Math.sin(cameraAngle) * moveZ;
+                cameraAnchor.z -= Math.sin(cameraAngle) * moveX + Math.cos(cameraAngle) * moveZ;
+            }
+            prevMouse.x = e.clientX; prevMouse.y = e.clientY;
+        });
+
+        // Click Detection
+        const raycaster = new THREE.Raycaster();
+        const pointer = new THREE.Vector2();
+        window.addEventListener('click', (e) => {
+            pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+            pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+            raycaster.setFromCamera(pointer, camera);
+            const hits = raycaster.intersectObjects(blocks, true);
+            if (hits.length > 0) {
+                let obj = hits[0].object;
+                while (obj.parent && !info[obj.name]) obj = obj.parent;
+                if (info[obj.name]) {
+                    document.getElementById('modal-title').innerText = obj.name;
+                    document.getElementById('modal-body').innerText = info[obj.name];
+                    document.getElementById('modal').classList.remove('hidden');
+                }
+            }
+        });
+
+        // --- ANIMATION LOOP ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (keys.w) { cameraAnchor.x -= Math.sin(cameraAngle) * 2; cameraAnchor.z -= Math.cos(cameraAngle) * 2; }
+            if (keys.s) { cameraAnchor.x += Math.sin(cameraAngle) * 2; cameraAnchor.z += Math.cos(cameraAngle) * 2; }
+            if (keys.a) { cameraAnchor.x -= Math.cos(cameraAngle) * 2; cameraAnchor.z += Math.sin(cameraAngle) * 2; }
+            if (keys.d) { cameraAnchor.x += Math.cos(cameraAngle) * 2; cameraAnchor.z -= Math.sin(cameraAngle) * 2; }
+            if (keys.q) cameraAngle -= 0.02;
+            if (keys.e) cameraAngle += 0.02;
+
+            mouse.smoothX += (mouse.x - mouse.smoothX) * 0.05;
+            mouse.smoothY += (mouse.y - mouse.smoothY) * 0.05;
+
+            camera.position.x = cameraAnchor.x + Math.cos(cameraAngle) * cameraDistance + (mouse.smoothX * 20);
+            camera.position.z = cameraAnchor.z + Math.sin(cameraAngle) * cameraDistance + (mouse.smoothY * 20);
+            camera.position.y = 120;
+            camera.lookAt(cameraAnchor);
+
+            // Animate Construction Sign
+            const fut = scene.getObjectByName("Future");
+            if(fut) fut.getObjectByName("sign").rotation.y += 0.04;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // UI Listeners
+        document.getElementById('close-btn').onclick = () => document.getElementById('modal').classList.add('hidden');
+        window.addEventListener('resize', () => {
+            aspect = window.innerWidth / window.innerHeight;
+            camera.left = -d * aspect; camera.right = d * aspect;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+      </html>
+      
