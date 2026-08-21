@@ -1,387 +1,456 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMAAD YAMEEN | INDUSTRIAL PORTFOLIO</title>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMAAD YAMEEN | INDUSTRIAL TERMINAL</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
     <script>
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
                         industrial: {
-                            orange: '#FF6B00', // Safety Orange
-                            blue: '#0047AB',   // Blueprint Blue
-                            steel: '#2D2D2D',  // Machinery Steel
-                        }
-                    }
-                }
-            }
-        }
+                        // Original Industrial Palette
+                            orange: "#FF6B00",
+                            blue: "#0047AB",
+                            steel: "#1e293b",
+                            dark: "#0f172a",
+                            purple: "#800080" ,
+                            yellow: "#ffff00" ,
+                            red: "#ff0000"  ,
+                        // Expanded Accent Palette
+                            white: "#FFFFFF",
+                            black: "#000000" ,
+                            silver: "#C0C0C0",
+                            grey: "#808080",
+                            brown: "#8B4513",
+                            green: "#00FF00",
+                            indigo: "#4B0082",
+                            violet: "#EE82EE",
+                            maroon: "#800000",
+                            pink: "#FFC0CB",
+                            skyblue: "#87CEEB",
+                        },
+                    },
+                    fontFamily: {
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                },
+            },
+        };
     </script>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700;800&display=swap');
-        
-        :root {
-            --bg-grid: #f1f5f9;
-            --grid-color: rgba(0, 71, 171, 0.05);
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700;800&display=swap");
+
+        :root { --grid-opacity: 0.05; }
+        .dark { --grid-opacity: 0.2; }
+
+        body {
+            font-family: "JetBrains Mono", monospace;
+            background-color: #f1f5f9;
+            background-image: 
+                linear-gradient(rgba(0, 71, 171, var(--grid-opacity)) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 71, 171, var(--grid-opacity)) 1px, transparent 1px);
+            background-size: 30px 30px;
+            transition: background-color 0.3s ease;
         }
 
-        .dark {
-            --bg-grid: #0f172a;
-            --grid-color: rgba(255, 255, 255, 0.03);
-        }
-
-        body { 
-            font-family: 'JetBrains Mono', monospace; 
-            background-color: var(--bg-grid);
-            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 25px 25px;
-        }
+        .dark body { background-color: #0f172a; }
 
         .industrial-card {
-            border: 2px solid #2d2d2d;
-            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            background: white;
             position: relative;
+            overflow: hidden;
+            border: 2px solid #1e293b;
+            background: white;
+            transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .dark .industrial-card {
             background: #1e293b;
-            border-color: #475569;
+            border-color: #334155;
         }
 
         .industrial-card:hover {
-            transform: translate(6px, -6px);
-            box-shadow: -10px 10px 0px #FF6B00;
+            transform: translate(4px, -4px);
+            box-shadow: -8px 8px 0px #ff6b00;
         }
 
-        .industrial-card:active {
-            transform: translate(0px, 0px);
-            box-shadow: 0px 0px 0px #FF6B00;
+        /* Scanline Effect */
+        .industrial-card::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
         }
 
-        .status-blink {
-            animation: blink 1s step-end infinite;
-        }
-
+        .status-blink { animation: blink 1.2s step-end infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
         .technical-header {
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            border-left: 6px solid #FF6B00;
+            letter-spacing: 0.15em;
+            border-left: 4px solid #ff6b00;
             padding-left: 1rem;
-            font-size: 1.25rem;
             font-weight: 800;
         }
 
-        .scanline-effect {
-            background: linear-gradient(
-                to bottom,
-                transparent 50%,
-                rgba(0, 0, 0, 0.4) 51%
-            );
-            background-size: 100% 4px;
-        }
-        
-        #fydp-video-feed {
-            filter: sepia(0.2) contrast(1.1) brightness(0.8);
-        }
-        
+        /* Smooth progress bar fill */
+        .progress-fill { transition: width 1.5s ease-in-out; }
+
+/* Updated Certification Section to be Reactive */
+.cert-archive {
+    position: relative;
+    padding: 40px 0;
+    transition: all 0.3s ease;
+}
+
+.cert-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    /* Hide scrollbar */
+    ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.cert-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure cards match the industrial-card style but with fixed width */
+.cert-item {
+    min-width: 300px;
+    flex-shrink: 0;
+}
+
+.nav-btn {
+    @apply border border-slate-800 dark:border-white p-2 px-4 hover:bg-industrial-orange hover:text-white hover:border-industrial-orange transition-all duration-200 uppercase text-[10px] font-bold;
+}
     </style>
 </head>
-<body class="text-slate-900 dark:text-slate-100">
 
-    <nav class="fixed w-full z-50 bg-white/90 dark:bg-slate-900/90 border-b-2 border-industrial-steel px-6 py-2">
-        <div class="max-w-7xl mx-auto flex justify-between items-center text-[10px] font-bold">
-            <div class="flex items-center gap-4">
-                <span class="text-industrial-orange">[SYSTEM_LIVE]</span>
-                <span id="pk-clock">PKT: --:--:--</span>
-                <span class="hidden md:inline opacity-50">LAT: 34.0151° N | LON: 71.5249° E</span>
-            </div>
+<body class="text-slate-900 dark:text-slate-100 antialiased">
+
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-industrial-steel/20 px-6 py-3">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-[11px] font-bold tracking-tighter">
             <div class="flex items-center gap-6">
-                <span class="status-blink text-green-500">● READY_FOR_DEPLOYMENT</span>
-                <button id="theme-toggle" class="hover:text-industrial-orange transition">
-                    <i id="theme-icon" class="fas fa-cloud"></i>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-industrial-orange animate-pulse"></span>
+                    <span class="text-industrial-orange uppercase">Connected</span>
+                </div>
+                <span id="pk-clock" class="font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">PKT: --:--:--</span>
+                <span class="hidden lg:inline opacity-40 uppercase">GPS_COORD: 34.01°N 71.52°E</span>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <span class="status-blink text-green-600 dark:text-green-400 hidden sm:inline uppercase">● System_Active</span>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                    <i id="theme-icon" class="fas fa-moon"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <header class="pt-24 pb-10 px-6 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-3 gap-8">
+    <header class="pt-32 pb-16 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-12 items-start">
             <div class="lg:col-span-2">
-                <p class="text-industrial-orange font-bold text-xs mb-2">// LOG_IDENTIFIER: IMAAD_YAMEEN_IE25</p>
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 uppercase">
-                    Industrial <br> <span class="bg-industrial-steel text-white px-1">_-_-</span> Engineer
+                <p class="text-industrial-orange font-black text-xs mb-4 tracking-[0.3em] uppercase">
+                    // Engineering_Profile: 2026_V2
+                </p>
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase leading-none underline">
+                    Industrial <br />
+                    <span style="-webkit-text-stroke: 0.3px currentColor;">Engineer</span>
                 </h1>
-                <p class="text-lg opacity-80 max-w-xl leading-relaxed">
-                    Efficiency-focused Engineer and Mechanical CAD Designer. 
-                    Specializing in data-driven operations optimization and autonomous industrial automation.
+                <p class="text-xl opacity-70 max-w-xl leading-relaxed font-light">
+                    Optimizing industrial workflows through <span class="text-industrial-orange font-bold">Quality Control</span>, 
+                    <span class="text-industrial-blue dark:text-blue-400 font-bold">Six Sigma</span> methodologies, & 
+                    <span class="text-industrial-green">autonomous system</span> integration.
                 </p>
             </div>
-            
-            <div class="border-2 border-industrial-steel dark:border-slate-700 p-6 bg-industrial-orange/5 h-fit">
-                <h3 class="font-bold text-xs mb-4 border-b border-industrial-steel pb-2 uppercase tracking-widest">CORE_METRICS</h3>
-                <div class="space-y-4">
+           <!-- // Performance Block -->
+           <!-- <div class="industrial-card p-6 border-industrial-orange/30">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-black text-xs uppercase tracking-widest">Core_Performance</h3>
+                    <i class="fas fa-microchip text-industrial-orange opacity-50"></i>
+                </div>
+
+                <div class="space-y-6">
                     <div>
-                        <div class="flex justify-between text-[10px] mb-1 font-bold"><span>ACADEMIC_CGPA</span><span>3.75 / 4.00</span></div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2"><div class="bg-industrial-orange h-full" style="width: 93.75%"></div></div>
+                        <div class="flex justify-between text-[10px] mb-2 font-bold uppercase">
+                            <span>Bachelor_CGPA</span><span>3.75 / 4.00</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="progress-fill bg-industrial-orange h-full" style="width:93.75%"></div>
+                        </div>
                     </div>
+
                     <div>
-                        <div class="flex justify-between text-[10px] mb-1 font-bold"><span>SIX_SIGMA_COMPLIANCE</span><span>YELLOW_BELT</span></div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2"><div class="bg-yellow-400 h-full" style="width: 100%"></div></div>
+                        <div class="flex justify-between text-[10px] mb-2 font-bold uppercase">
+                            <span>Process_Optimization</span><span>Yellow Belt</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="progress-fill bg-yellow-500 h-full" style="width:100%"></div>
+                        </div>
                     </div>
+
                     <div>
-                        <div class="flex justify-between text-[10px] mb-1 font-bold"><span>AGILE_PROJECT_MGMT</span><span>CERTIFIED</span></div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2"><div class="bg-industrial-blue h-full" style="width: 100%"></div></div>
+                        <div class="flex justify-between text-[10px] mb-2 font-bold uppercase">
+                            <span>Compliance_Rating</span><span>ISO 9001</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="progress-fill bg-green-500 h-full" style="width:100%"></div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="flex justify-between text-[10px] mb-1 font-bold"><span>ISO_9001:2015_QMS</span><span>COMPLIANT</span></div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2"><div class="bg-green-600 h-full" style="width: 100%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-[10px] mb-1 font-bold"><span>NVIDIA_AI_TRAINING</span><span>COMPLETED</span></div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2"><div class="bg-purple-600 h-full" style="width: 100%"></div></div>
-                    </div>
-                    <p class="text-[9px] opacity-60 leading-tight mt-4 italic">
-                        *Verification: UET Peshawar | NVIDIA Deep Learning Institute | ISO Audit Standards.
+                </div>
+                
+                <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
+                    <p class="text-[9px] opacity-40 uppercase leading-tight italic font-bold">
+                        Verified: UET Peshawar | NVIDIA DLI | ISO Quality Standards
                     </p>
                 </div>
             </div>
-        </div>
+        </div> -->
+            <!-- // Picture Block -->
+           <div class="industrial-card p-2 border-industrial-orange/30 w-full max-w-[280px] mx-auto">
+                <div class="flex justify-center items-center overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-square"> 
+                    <img 
+                        src="img\dp.jpg" 
+                        alt="Engr_Imaad_Yameen_Profile"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                    >
+                </div>
+                <div class="mt-2 text-[9px] text-center uppercase opacity-40 font-bold tracking-widest">
+                    ID_SCAN: Engr_Imaad_Yameen
+                </div>
+            </div>
     </header>
 
-    <section class="py-8 px-6 max-w-7xl mx-auto">
-        <h2 class="technical-header text-sm font-bold mb-6">TECHNICAL_INVENTORY.sys</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="industrial-card p-6">
-                <i class="fas fa-drafting-compass text-2xl text-industrial-orange mb-4 block"></i>
-                <h4 class="font-bold text-sm mb-2 uppercase">CAD / CAM</h4>
-                <p class="text-[11px] opacity-70">SolidWorks, AutoCAD, Fusion360 </p>
-            </div>
-            <div class="industrial-card p-6">
-                <i class="fas fa-database text-2xl text-industrial-orange mb-4 block"></i>
-                <h4 class="font-bold text-sm mb-2 uppercase">Data Organisation</h4>
-                <p class="text-[11px] opacity-70">Data Entry, Analysis & Control</p>
-            </div>
-            <div class="industrial-card p-6">
-                <i class="fas fa-chart-line text-2xl text-industrial-orange mb-4 block"></i>
-                <h4 class="font-bold text-sm mb-2 uppercase">Six Sigma</h4>
-                <p class="text-[11px] opacity-70">Lean Manufacturing & Process Optimization.</p>
-            </div>
-            <div class="industrial-card p-6">
-                <i class="fas fa-stopwatch text-2xl text-industrial-orange mb-4 block"></i>
-                <h4 class="font-bold text-sm mb-2 uppercase">Operations</h4>
-                <p class="text-[11px] opacity-70">Kaizen, 5S, Time & Motion Study</p>
-            </div>
-            <div class="industrial-card p-6">
-                <i class="fas fa-check-double text-2xl text-industrial-orange mb-4 block"></i>
-                <h4 class="font-bold text-sm mb-2 uppercase">Quality Systems</h4>
-                <p class="text-[11px] opacity-70">Process Control & Quality Assurance</p>
-            </div>
-            <div class="industrial-card p-6">
-                <i class="fas fa-project-diagram text-2xl text-industrial-orange mb-4 block"></i>
-                <h4 class="font-bold text-sm mb-2 uppercase">Project Architecture</h4>
-                <p class="text-[11px] opacity-70">MS Project, Visio & Advanced Excel</p>
-            </div>
-            <div class="industrial-card p-6">
-                <i class="fas fa-microchip text-2xl text-industrial-orange mb-4 block"></i>
-                <h4 class="font-bold text-sm mb-2 uppercase">Automation</h4>
-                <p class="text-[11px] opacity-70">RFID Systems & CNC Monitoring.</p>
-            </div>
-            <div class="industrial-card p-6">
-                <i class="fas fa-cube text-2xl text-industrial-orange mb-4 block"></i>
-                <h4 class="font-bold text-sm mb-2 uppercase">Additive Mfg</h4>
-                <p class="text-[11px] opacity-70">3D Printing | Prusa Slicer.</p>
-            </div>
+    <a href="resume/cv.html" target="_blank" class="industrial-card p-8 block group">
+        <div class="flex justify-between items-start mb-3">
+            <i class="fas fa-file-pdf text-3xl text-red-600"></i>
+            <h4 class="font-black uppercase text-lg mb-1">Full_Resume_2026</h4>
+            <p class="text-[11px] opacity-50 uppercase tracking-tighter">Academic & Professional History</p>
+            <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-orange"></i>
         </div>
-    </section>
+    </a>
 
-    <section class="py-12 px-6 max-w-7xl mx-auto border-t-2 border-industrial-steel border-dashed">
-        <h2 class="technical-header text-sm font-bold mb-8">DOCUMENT_ARCHIVE.sys</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="resume/CV-Ind.html" target="_blank" class="industrial-card p-6 block group">
-                <div class="flex justify-between items-start mb-4">
-                    <i class="fas fa-file-pdf text-2xl text-industrial-orange"></i>
-                    <span class="text-[9px] font-black opacity-40 uppercase tracking-tighter">PREVIEW_AVAILABLE</span>
-                </div>
-                <h4 class="font-bold text-sm mb-1 uppercase group-hover:text-industrial-orange transition">Full_Resume_2026</h4>
-                <p class="text-[10px] opacity-70">Industrial Engineering Portfolio & Work History</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-[10px] font-bold">
-                    <i class="fas fa-eye"></i> VIEW_DOCUMENT.sh
-                </div>
-            </a>
+    <section class="py-12 px-6 max-w-7xl mx-auto">
+        <h2 class="technical-header mb-8">experience_DataSheet.sys</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+           <div class="industrial-card p-6 group">
+              <div class="w-12 h-12 flex items-center justify-center bg-industrial-orange/10 mb-4 transition-colors group-hover:bg-industrial-orange">
+                  <i class="fas fa-drafting-compass text-xl text-industrial-orange group-hover:text-white"></i>
+              </div>
+              <h3 class="font-black uppercase text-sm mb-1">SolidWorks Designer</h3>
+              <p class="text-xs opacity-60 italic mb-1">(Jan 2026 – Feb 2026)</p>
+              
+              <h4 class="font-black uppercase text-xs mb-1 text-industrial-orange">SK Engineering:</h4>
+              <ul class="list-disc list-inside space-y-2 text-xs opacity-70">
+                  <li>Engineered industrial molds for injection molding.</li>
+                  <li>Designed & validated "Go/No-Go" gauges with minimum tolerances.</li>
+                  <li>Spearheaded design modifications to enhance manufacturability.</li>
+              </ul>
+          </div>
+          
+          <div class="industrial-card p-6 group">
+              <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 mb-4 transition-colors group-hover:bg-industrial-blue">
+                  <i class="fas fa-microchip text-xl text-industrial-blue group-hover:text-white"></i>
+              </div>
+              <h3 class="font-black uppercase text-sm mb-1">Internship Trainee</h3>
+              
+              <div class="space-y-4">
+                  <div>
+                       <p class="text-xs opacity-60 italic mb-1">(Jun 2024 – Sep 2024)</p>
+                      <h4 class="font-black uppercase text-xs mb-1 text-industrial-blue">SK Engineering:</h4>
+                      <ul class="list-disc list-inside space-y-1.5 text-[11px] opacity-70">
+                          <li>Monitored CNC machines to ensure high operational efficiency.</li>
+                          <li>Designed Job & Machine cards to maintain process discipline.</li>
+                          <li>Worked with RFID & Automation for production tracking.</li>
+                      </ul>
+                  </div>
+                  <div>
+                      <p class="text-xs opacity-60 italic mb-1">(Jun 2023 – Aug 2023)</p>
+                      <h4 class="font-black uppercase text-xs mb-1 text-industrial-blue">Dewan Cement Limited:</h4>
+                      <ul class="list-disc list-inside space-y-1.5 text-[11px] opacity-70">
+                          <li>Gained knowledge of mechanical machines & industrial processes.</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
 
-            <a href="https://drive.google.com/drive/folders/1kwZRGxMLZZkpyrvA06zqMDjdWw4m0C01?usp=sharing" target="_blank" class="industrial-card p-6 block group">
-                <div class="flex justify-between items-start mb-4">
-                    <i class="fas fa-folder-open text-2xl text-industrial-orange"></i>
-                    <span class="text-[9px] font-black opacity-40 uppercase tracking-tighter">MULTI_CERT_DIR</span>
-                </div>
-                <h4 class="font-bold text-sm mb-1 uppercase group-hover:text-industrial-orange transition">Training_Credentials</h4>
-                <p class="text-[10px] opacity-70">Six Sigma, Agile, ISO 9001 & NVIDIA AI Training</p>
-                <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-[10px] font-bold">
-                    <i class="fas fa-external-link-alt"></i> OPEN_ARCHIVE.sys
-                </div>
-            </a>
-
-                <div class="industrial-card group overflow-hidden">
-                    <div class="relative w-full aspect-video bg-black overflow-hidden border-b-2 border-industrial-steel">
-                        <video 
-                            id="fydp-video-feed"
-                            autoplay 
-                            muted 
-                            loop 
-                            playsinline
-                            class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700"
-                        >
-                            <source src="vid/FYDP.mp4" type="video/mp4">
-                        </video>
-                
-                        <div class="absolute inset-0 pointer-events-none scanline-effect opacity-10"></div>
-                        <div class="absolute top-2 left-2 flex items-center gap-2 bg-black/60 px-2 py-1 backdrop-blur-sm border border-white/10">
-                            <span class="flex h-1.5 w-1.5">
-                                <span class="animate-ping absolute inline-flex h-1.5 w-1.5 rounded-full bg-industrial-orange opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-industrial-orange"></span>
-                            </span>
-                            <span class="text-[8px] font-bold text-white tracking-widest mono uppercase">UET_JALOZAI_FEED: 21-24</span>
+                  <div class="industrial-card p-6 group">
+                      <div class="w-12 h-12 flex items-center justify-center bg-industrial-purple/10 mb-4 transition-colors group-hover:bg-industrial-purple">
+                          <i class="fas fa-industry text-xl text-industrial-purple group-hover:text-white"></i>
+                      </div>
+                      <div class="flex justify-between items-start">
+                          <div>
+                              <h3 class="font-black uppercase text-sm mb-1">FYDP Project Head</h3>
+                              <p class="text-xs opacity-60 italic mb-1">(Sep 2024 – Aug 2025)</p>
+                      <h4 class="font-black uppercase text-xs mb-1 text-industrial-purple">NBL Pesh.:</h4>
+                      <ul class="list-disc list-inside space-y-2 text-xs opacity-70">
+                          <li>Engineered and programmed an automated UAV system for warehouse inventory control.</li>
+                          <li>Achieved a 25% optimization in inspection time vs. manual method.</li>
+                          <li>Developed a detailed implementation plan to reduce process bottlenecking.</li>
+                      </ul>
+                         </div>
+                         <a href="./vid/index.html" class="inline-block">
+                            <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-orange"></i>
+                        </a>
                         </div>
                     </div>
-                
-                    <div class="p-6">
-                        <h4 class="font-bold text-sm uppercase group-hover:text-industrial-orange transition">FYDP_Technical_Specs</h4>
-                        <p class="text-[10px] opacity-70 mb-4 uppercase tracking-tighter">UAV Inventory Automation System</p>
-                        
-                        <a href="https://drive.google.com/file/d/1-nX0OJEa9G_RHR4_aM05yYP-ui5fNZ0y/preview" target="_blank" 
-                           class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-[10px] font-bold hover:text-industrial-orange transition">
-                            <i class="fas fa-eye"></i> VIEW_SYSTEM_ARCHIVE.log
-                        </a>
+                <div class="industrial-card p-6 group">
+                    <div class="w-12 h-12 flex items-center justify-center bg-industrial-green/10 mb-4 transition-colors group-hover:bg-industrial-green">
+                        <i class="fas fa-palette text-xl text-industrial-green group-hover:text-white"></i>
                     </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-black uppercase text-sm mb-1">Deputy Design Head</h3>
+                            <p class="text-xs opacity-60 italic mb-1">(Sep 2023 – Jun 2025)</p>                    
+                    <h4 class="font-black uppercase text-xs mb-1 text-industrial-green">IISE Society - UET Peshawar (Jalozai):</h4>
+                    <ul class="list-disc list-inside space-y-2 text-xs opacity-70">
+                        <li>Managed the visual identity and branding protocols for the IISE student chapter.</li>
+                        <li>Executed high-fidelity design iterations for technical event posters and digital assets.</li>
+                        <li>Supervised the finalization process of promotional materials to ensure alignment with society standards.</li>
+                    </ul>
                 </div>
+            </div>
         </div>
     </section>
 
-<footer class="mt-20 py-12 px-6 border-t-4 border-industrial-steel bg-industrial-steel text-white">
-    <div class="max-w-7xl mx-auto">
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12 pb-10 border-b border-white/10">
-            
-            <div class="space-y-4">
-                <h5 class="text-[10px] text-industrial-orange font-black tracking-[0.3em] uppercase">
-                    [01] VISUAL_STUDIO
-                </h5>
-                <ul class="space-y-2 text-[11px] opacity-80">
-                    <li><a href="Portfoilos/Graphics/index.html" class="hover:text-industrial-orange transition flex items-center gap-2">
-                        <i class="fas fa-palette w-4"></i> GRAPHIC_DESIGN_PORTFOLIO
-                    </a></li>
-                    <li><a href="Portfoilos/3D/index.html" class="hover:text-industrial-orange transition flex items-center gap-2">
-                        <i class="fas fa-cube w-4"></i> 3D_CAD_ARCHIVE
-                    </a></li>
-                    <li><a href="Portfoilos/Gamer/index.html" class="hover:text-industrial-orange transition flex items-center gap-2">
-                        <i class="fas fa-cube w-4"></i> GAMER
-                    </a></li>
-                </ul>
-            </div>
-
-            <div class="space-y-4">
-                <h5 class="text-[10px] text-industrial-orange font-black tracking-[0.3em] uppercase">
-                    [02] EXTERNAL_NODES
-                </h5>
-                <ul class="space-y-2 text-[11px] opacity-80">
-                    <li><a href="https://github.com/yameenimaad" class="hover:text-industrial-orange transition flex items-center gap-2">
-                        <i class="fab fa-github w-4"></i> GITHUB_REPOSITORIES
-                    </a></li>
-                    <li><a href="#" class="hover:text-industrial-orange transition flex items-center gap-2">
-                        <i class="fab fa-behance w-4"></i> BEHANCE_SHOWCASE
-                    </a></li>
-                </ul>
-            </div>
-
-            <div class="space-y-4">
-                <h5 class="text-[10px] text-industrial-orange font-black tracking-[0.3em] uppercase">
-                    [03] CONNECT_PROTOCOL
-                </h5>
-                <ul class="space-y-2 text-[11px] opacity-80">
-                    <li><a href="https://www.linkedin.com/in/imaad-ullah-khan-yameen/" class="hover:text-industrial-orange transition flex items-center gap-2">
-                        <i class="fab fa-linkedin-in w-4"></i> LINKEDIN_TERMINAL
-                    </a></li>
-                    <li><a href="mailto:yameenimaad@gmail.com" class="hover:text-industrial-orange transition flex items-center gap-2">
-                        <i class="far fa-envelope w-4"></i> EMAIL_SECURE
-                    </a></li>
-                </ul>
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="technical-header">CERTIFICATION_ARCHIVE.SYS</h2>
+            <div class="flex gap-2">
+                <button id="prevBtn" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-[10px] space-y-1 opacity-60 mono">
-                <p>// DESIGNED_BY: ENGR. IMAAD YAMEEN</p>
-                <p>// ENCRYPTION: 256-BIT_SSL_ACTIVE</p>
-                <p>// BUILD_STATUS: STABLE_V2.0</p>
-                <p>© 2026 IMAAD ULLAH KHAN YAMEEN • ALL_RIGHTS_RESERVED</p>
+    
+        <div class="cert-track" id="certTrack">
+            <div class="cert-item industrial-card p-6 group">
+                <div class="w-10 h-10 mb-4 flex items-center justify-center bg-purple-500/10 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="font-black uppercase text-sm mb-1">NVIDIA DLI</h3>
+                <p class="text-[11px] opacity-60 uppercase mb-4 tracking-tighter">Deep Learning Institute</p>
+                <span class="text-[10px] font-bold text-purple-500 uppercase tracking-widest">[ AI_ACCEL_ACTIVE ]</span>
             </div>
-            
-            <div class="flex gap-4">
-                <div class="bg-black/20 px-3 py-2 border border-white/5 flex items-center gap-3">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    <span class="text-[9px] mono tracking-widest uppercase">System_Online</span>
+    
+            <div class="cert-item industrial-card p-6 group">
+                <div class="w-10 h-10 mb-4 flex items-center justify-center bg-green-500/10 text-green-500 group-hover:bg-green-500 group-hover:text-white transition-colors">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h3 class="font-black uppercase text-sm mb-1">OSHA Standards</h3>
+                <p class="text-[11px] opacity-60 uppercase mb-4 tracking-tighter">Occupational Health & Safety</p>
+                <span class="text-[10px] font-bold text-green-500 uppercase tracking-widest">[ SAFETY_PRIORITY ]</span>
+            </div>
+    
+            <div class="cert-item industrial-card p-6 group">
+                <div class="w-10 h-10 mb-4 flex items-center justify-center bg-industrial-orange/10 text-industrial-orange group-hover:bg-industrial-orange group-hover:text-white transition-colors">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <h3 class="font-black uppercase text-sm mb-1">SolidWorks Prof.</h3>
+                <p class="text-[11px] opacity-60 uppercase mb-4 tracking-tighter">Mechanical CAD Design</p>
+                <span class="text-[10px] font-bold text-industrial-orange uppercase tracking-widest">[ CSWP_CANDIDATE ]</span>
+            </div>
+    
+            <div class="cert-item industrial-card p-6 group">
+                <div class="w-10 h-10 mb-4 flex items-center justify-center bg-industrial-orange/10 text-industrial-orange group-hover:bg-industrial-orange group-hover:text-white transition-colors">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="font-black uppercase text-sm mb-1">SolidWorks Assoc.</h3>
+                <p class="text-[11px] opacity-60 uppercase mb-4 tracking-tighter">Dassault Systèmes</p>
+                <span class="text-[10px] font-bold text-industrial-orange uppercase tracking-widest">[ CSWA_ACTIVE ]</span>
+            </div>
+        </div>
+    </section>
+    <footer class="mt-20 py-12 px-6 border-t-4 border-industrial-steel bg-slate-900 text-slate-400">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="space-y-2">
+                    <p class="text-white font-bold text-xs uppercase tracking-[0.3em]">Engr. Imaad Yameen</p>
+                    <p class="text-[10px] leading-relaxed max-w-sm uppercase">
+                        Industrial Engineering Graduate // Mechanical Designer // Automation Specialist.
+                    </p>
+                </div>
+                <div class="flex md:justify-end gap-6 text-sm">
+                    <a href="#" class="hover:text-white transition-colors uppercase font-bold text-[10px]">LinkedIn</a>
+                    <a href="#" class="hover:text-white transition-colors uppercase font-bold text-[10px]">GitHub</a>
+                    <a href="mailto:contact@imaadyameen.com" class="hover:text-white transition-colors uppercase font-bold text-[10px]">Email_Terminal</a>
                 </div>
             </div>
+            <div class="pt-8 border-t border-slate-800 text-[9px] flex flex-col md:flex-row justify-between gap-4 uppercase font-bold">
+                <p>© 2026 IMAAD ULLAH KHAN YAMEEN // ALL_SYSTEMS_OPERATIONAL</p>
+                <p>Build: v2.0.4-Stable // Encrypted_Static_Site</p>
+            </div>
         </div>
-
-    </div>
-</footer>
+    </footer>
 
     <script>
-        // PKT Real-time Clock
+        // Real-time Clock Logic
         function updatePKT() {
-            const clock = document.getElementById('pk-clock');
+            const clock = document.getElementById("pk-clock");
             const now = new Date();
-            const time = new Intl.DateTimeFormat('en-US', {
-                timeZone: 'Asia/Karachi',
-                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+            const time = new Intl.DateTimeFormat("en-US", {
+                timeZone: "Asia/Karachi",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: false,
             }).format(now);
             clock.innerText = `PKT: ${time}`;
         }
         setInterval(updatePKT, 1000);
         updatePKT();
 
-        // Dark Mode Logic
-        const btn = document.getElementById('theme-toggle');
-        const icon = document.getElementById('theme-icon');
-        const root = document.documentElement;
+        // Theme Toggle Persistence
+        const btn = document.getElementById("theme-toggle");
+        const icon = document.getElementById("theme-icon");
+        const html = document.documentElement;
 
-        btn.addEventListener('click', () => {
-            root.classList.toggle('dark');
-            icon.classList.toggle('fa-cloud');
-            icon.classList.toggle('fa-bolt');
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            const v = document.getElementById('fydp-video-feed');
-            if (v) {
-                // 0.4 sets the video to 40% speed for a dreamy, technical slow-mo look
-                v.playbackRate = 0.4; 
+        // Check for saved theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        btn.addEventListener("click", () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
             }
+        });
+        const track = document.getElementById('certTrack');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        // Amount to scroll per click (width of one card + gap)
+        const scrollAmount = 320; 
+
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
