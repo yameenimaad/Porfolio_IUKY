@@ -4,9 +4,7 @@
 
 ---
 
-## 🖥️ SYSTEM_INTERFACE_PREVIEW
 
-![Interface Preview](img/Portfolio-ss.png)
 
 ---
 
