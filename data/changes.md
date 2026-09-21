@@ -365,3 +365,229 @@ Node.js in this environment to actually execute the JS — cross-checked every
 single `getElementById` call in the page against the HTML's actual `id`
 attributes by hand (all 30 match exactly), to rule out the one failure mode
 that would silently break the whole script.
+
+## 2026-09-18 — rebuilt 3dhtml.html as a React + Three.js cartoon portfolio room
+
+[3dhtml.html](../3dhtml.html) previously held an unused duplicate of the
+industrial-terminal `index.html` layout (no 3D content despite the filename).
+Rebuilt it from scratch per request: a React 18 + Three.js scene where the
+main portfolio and every sub-portfolio are physical, low-poly, toon-shaded
+objects placed inside a single room — walking up to (clicking) an exhibit
+opens that real portfolio page.
+
+- **Stack**: React 18 UMD + Babel Standalone (in-browser JSX, no build step —
+  matches this project's no-Node.js constraint) for the UI/HUD, and Three.js
+  0.160.0 (same pinned version already used by `world.html` and
+  `CADCAMCAE/viewer.html`) loaded via an import map and dynamic `import()`
+  inside a `useEffect`, for the scene. No bundler.
+- **Cartoon look**: hand-built toon shading — a 4-step `MeshToonMaterial`
+  gradient map generated on a `<canvas>`, plus a classic backface-extrusion
+  outline (inverted, slightly scaled black clone parented to every mesh) for
+  the cel-shaded/ink-outline look, instead of any external toon-shader
+  library.
+- **The room**: a pastel museum-style room (checkerboard floor via a
+  generated canvas texture, three walls, a rug, a hanging lamp fixture) with
+  a directional "sun" + ambient + a warm point light, soft shadows enabled.
+- **8 exhibits**, each a small procedurally-built low-poly icon on a pedestal
+  (no external model files — fully generated from Three.js primitives, so
+  nothing to load or break): a gear+cube for CAD/CAM/CAE, a spinning globe
+  with pins for GIS & Remote Sensing, a bumpy icosahedron "brain" with
+  orbiting nodes for AI/ML, a mini PCB with components for Embedded Systems,
+  a torus-knot sculpture for Creative & 3D, a laptop with a canvas-drawn
+  `>_` screen for Programming, a game controller for Gamer, and — mounted on
+  the back wall instead of a pedestal — a glowing "portal" doorway back to
+  the main 2D site.
+- Every exhibit's `href` was checked against the real folder names on disk
+  (`Get-ChildItem`), not assumed from memory — this caught the GIS folder
+  fix below before it went into the new page.
+- Interaction: raycasting against invisible hotspot meshes drives hover
+  (tooltip HUD showing the real one-line description reused from the main
+  page's cards) and click-to-navigate, with a drag-vs-click distance check
+  so rotating the camera with the mouse never accidentally fires a
+  navigation.
+- Added a discovery link — "Enter The 3D Room" — next to the existing
+  "Explore Specialized Portfolios" button on the main `index.html` hero, so
+  the page is actually reachable instead of an orphaned file.
+- Note: unlike the AI/ML lab, this page is **not** offline-only — it loads
+  React, Babel, and Three.js from a CDN, same as the existing `world.html`
+  and `viewer.html`. It needs an internet connection the first time it's
+  opened; the page shows an explicit error screen (with a link back to the
+  classic 2D site) if that load fails instead of a blank screen.
+
+**Bug found and fixed while doing this** (unrelated to the 3D room, caught
+by `validate.ps1`): the `GIS` sub-portfolio folder had been renamed on disk
+to `GIS & Remote Sensing`, but both `index.html`'s portfolio card and its
+footer link still pointed at the old `GIS, remote sensing` path, silently
+broken. Fixed both references.
+
+**Found but not fixed** (out of scope for this task, flagged for later):
+`validate.ps1` also shows ~20 broken file references inside
+`CADCAMCAE/index.html` and its STL viewer — they all expect a
+`Data/SDWRKS/...` path, but the `SDWRKS` folder no longer exists; the real
+files now live directly under `CADCAMCAE/Data/...` (e.g.
+`Data/2d plotter/...` instead of `Data/SDWRKS/2d plotter/...`). The `Data`
+folder also has several unlabeled `New folder`/`New folder (2)` directories
+from what looks like a mid-reorganization, so this needs the user to confirm
+the intended structure before it's remapped, rather than a blind
+find-and-replace of the `SDWRKS/` prefix.
+
+Verified: bracket balance checked (curly/paren/square all matched) since
+there's no JS engine to lint against, and `validate.ps1` run twice — once to
+catch the GIS regression pre-existing in the repo, once after all edits,
+confirming 3dhtml.html and index.html both pass with 0 issues (the only
+remaining failures are the pre-existing CADCAMCAE/Data/SDWRKS paths above).
+
+## 2026-09-18 — 3dhtml.html: real furniture, isometric camera, one room
+
+Follow-up request: make the room look like an actual bedroom/study instead
+of an abstract museum of floating icons — bed, desk + chair, a computer on
+the desk, a "library" (bookcase) with a globe on top, a window, an AC unit,
+lighting, a Persian carpet, and an isometric view. Also asked to browse for
+real models rather than keep hand-rolling everything.
+
+- **Sourced real furniture models.** Searched the web, found Kenney's
+  "Furniture Kit" (kenney.nl/assets/furniture-kit, CC0 — public domain, no
+  attribution required, verified by reading the pack's own `License.txt`).
+  Downloaded the official zip directly from kenney.nl, extracted 14 pieces
+  with Python's `zipfile` (git-bash's `unzip` choked on the archive; Python
+  read it fine), and copied only what's used into
+  [Assets/RoomKit/](../Assets/RoomKit/): bed, desk, desk chair, an open
+  bookcase, books, a computer screen/keyboard/mouse, a ceiling lamp, a desk
+  lamp, a wall window, a doorway, a side table, and a potted plant. Added
+  [Assets/RoomKit/CREDITS.txt](../Assets/RoomKit/CREDITS.txt) documenting
+  the source and license even though CC0 doesn't require it. Inspected one
+  model's raw glTF JSON with a small Python script before writing any
+  loading code, to confirm these use flat per-part materials (not vertex
+  colors) — that determined how the toon-shading conversion needed to work.
+- **Isometric camera.** Replaced the free-orbit perspective camera with an
+  `OrthographicCamera` positioned along the true isometric direction
+  (offset `(1,1,1)` normalized from its target — the angle that makes
+  isometric "isometric," ~54.7° from vertical). `OrbitControls` is still
+  attached for a little life, but its azimuth/polar range is clamped to
+  roughly ±23°/±14° around that true angle so it never stops reading as an
+  isometric room.
+- **One real room, not a floor of pedestals.** Furniture is grounded and
+  centered generically: each loaded model's own `Box3` is used to sit it
+  flush on the floor (or, for the ceiling lamp, hang it from a fixed
+  height) — no hardcoded per-model dimensions, since those aren't knowable
+  without opening the file in a real 3D tool. Same `Box3` trick then reads
+  each surface's real top height at runtime to stack things on it (monitor
+  + keyboard + mouse on the desk, books on the bookcase shelf).
+- **Persian carpet.** The kit's own rug is a single flat color, so instead
+  the rug is a plain `PlaneGeometry` with an ornamental medallion-and-border
+  pattern drawn by hand on a `<canvas>` (nested diamonds, a gold border, a
+  center medallion) — fully original programmatic art, not a traced or
+  photographed real carpet design.
+- **AC unit and wall clock** have no equivalent in this furniture kit, so
+  those stayed hand-built primitives (unchanged approach from before). The
+  wall clock's hands are wired to the real Asia/Karachi time in the render
+  loop, the same convention the rest of this site already uses for its live
+  clocks, rather than sitting frozen at a fixed time.
+- **The 8 clickable exhibits now live inside the room** instead of standing
+  on their own pedestals: the computer on the desk *is* the Programming
+  hotspot; the globe (hand-built, unchanged from before) sits on top of the
+  bookcase for GIS; a brain sits beside it for AI/ML; a gear and a
+  torus-knot sculpture sit on the desk for CAD/CAM/CAE and Creative & 3D; a
+  circuit board sits on the nightstand for Embedded Systems; a game
+  controller rests on the bed for Gamer Design; and the real doorway model
+  (replacing the old abstract ring "portal") is the way back to the main
+  site. Same hover/click/drag-vs-click interaction code as before — only
+  what each hotspot points at and sits on changed.
+- Removed the now-dead `buildPedestal`, `buildPortal`, `buildLaptopIcon`,
+  and `makeLabelSprite` functions from the previous version instead of
+  leaving them unused in the file.
+- **Fixed a real gap in `validate.ps1` while doing this**: its heuristic
+  script-asset check only ever looked one folder level into `Assets/`, so
+  it flagged all 14 real, correctly-referenced `Assets/RoomKit/*.glb` paths
+  as broken. Extended it to search one level deeper
+  (`Get-ChildItem -Recurse` under `Assets/`) before reporting a miss —
+  confirmed this was the right fix by first proving on disk that all 14
+  files genuinely exist at the paths the page references.
+
+Verified: bracket balance (curly/paren/square all matched), every one of
+the 14 referenced `.glb` filenames cross-checked against
+`Assets/RoomKit/` on disk, and a full `validate.ps1` run showing
+3dhtml.html passes with 0 issues (only the pre-existing, unrelated
+CADCAMCAE/Data/SDWRKS paths remain flagged). Could not visually preview the
+render in this environment — furniture rotation/orientation is a best
+guess per model and may need a manual tweak once seen in a real browser.
+
+## 2026-09-18 — 3dhtml.html: fully offline, no CDN, no Babel
+
+The user tried opening 3dhtml.html and hit its own error screen — "Could
+not start the 3D room" — because it still depended on unpkg.com for React,
+Babel, and Three.js. Asked to make it usable offline.
+
+- **Vendored every library into the project.** Downloaded React 18.2.0
+  (UMD production builds), Three.js 0.160.0's core module, and its
+  `OrbitControls.js` + `GLTFLoader.js` addons directly from their official
+  npm packages via unpkg, into [vendor/](../vendor/). Before trusting the
+  loaders, grepped their own `import` statements for further dependencies —
+  found `GLTFLoader.js` pulls in one more relative file,
+  `addons/utils/BufferGeometryUtils.js`, which itself needs nothing beyond
+  Three.js core. Downloaded that too, so the full dependency chain is
+  actually closed, not just "probably fine." Documented licenses (both MIT)
+  in [vendor/LICENSES.txt](../vendor/LICENSES.txt).
+- **Dropped Babel Standalone entirely** rather than vendor a ~2-3MB
+  in-browser JSX compiler. Hand-converted the one JSX block (the `App`
+  component's render tree — HUD, hover tooltip, loading/error screens) to
+  plain `React.createElement` calls. The script tag is now a genuine
+  `type="module"` with real static `import` statements for `three`,
+  `OrbitControls`, and `GLTFLoader` at the top, instead of the previous
+  `await import(...)` calls inside `buildScene` — same libraries, just
+  resolved once at module-load instead of dynamically.
+- Updated the import map to point `"three"` / `"three/addons/"` at the new
+  local `./vendor/three/...` paths instead of unpkg URLs — the addon files
+  themselves are unmodified and still `import ... from 'three'` internally,
+  which is exactly what an import map is for.
+- Rewrote the loading/error screen copy: it no longer says "needs an
+  internet connection," since after this change it genuinely doesn't (the
+  furniture `.glb` files were already local from the previous change).
+- Confirmed with `grep` that the file now contains zero `http://`/`https://`
+  references anywhere — nothing left that reaches outside the project.
+
+Verified: bracket balance (curly/paren/square all matched after the JSX
+removal), `validate.ps1` full-site run still shows 3dhtml.html at 0 issues
+(same pre-existing unrelated CADCAMCAE paths as before), and manually
+grepped every downloaded addon file's own `import` lines to confirm no
+further undeclared dependencies were missed.
+
+One caveat worth knowing: this still requires the page to be served over
+`http://`/`https://` (a local dev server, or GitHub Pages) — the ES module
+imports and the GLTFLoader's `fetch()` calls for the `.glb` files are
+blocked by browsers under a raw `file://` double-click, same as the
+existing `world.html` and `viewer.html` already on this site. "Offline"
+here means no CDN/network calls once served, matching how the rest of the
+site already runs, not literally file-double-click-able.
+
+## 2026-09-21 — recovered 3dhtml.html, made its error screen actually diagnostic
+
+The file had been deleted from disk outside this conversation (confirmed via
+`git status`); restored it verbatim from the last commit
+(`git show HEAD:3dhtml.html`). Verified its two dependency folders,
+`vendor/` (7 files) and `Assets/RoomKit/` (16 files), were untouched.
+
+Separately, the user hit "Could not start the 3D room" when actually
+running the page for the first time via a local server (127.0.0.1:5500).
+Read through the whole of `buildScene()` line by line — every referenced
+`.glb` filename in `Assets/RoomKit/` matches on disk exactly, and every
+helper function called (`addOutline`, `toonMesh`, `makeClockHand`, all six
+`build*Icon` functions) is actually defined. No bug surfaced on inspection,
+but there's no way to run a real browser in this environment to confirm
+further, so guessing further would just be speculation.
+
+Instead, fixed the actual gap: the error screen's message was a generic,
+possibly-wrong guess ("needs a WebGL-capable browser") no matter what
+actually failed inside `buildScene()`'s promise — the real `err.message`
+was only ever sent to `console.error`, invisible unless DevTools happened
+to be open. Added an `errorDetail` state and now render the caught error's
+actual message directly on the error screen, so the *next* failure (if any)
+is immediately diagnosable from a screenshot alone, without needing to ask
+the user to open DevTools.
+
+Verified: bracket balance (curly/paren matched), and a full `validate.ps1`
+run — 3dhtml.html and index.html both pass clean; the only issues are the
+pre-existing CADCAMCAE/Data/SDWRKS paths and a newly-noticed one in
+Misc/index.html (an old copy of the root page, moved into a new Misc/
+folder by the user, whose relative link to 3dhtml.html no longer resolves
+from that location — orphaned, not linked from anywhere live, left alone).
