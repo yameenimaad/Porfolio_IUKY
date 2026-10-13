@@ -1,0 +1,393 @@
+/* ============================================================================
+   main.css -- all custom styling for the portfolio index.
+   Extracted out of index.html so the markup stays readable.
+
+   Tailwind utility classes still come from the Play CDN script in the page;
+   this file holds only the hand-written rules. @apply does NOT work here --
+   the CDN only expands it inside an inline <style type="text/tailwindcss">
+   block -- so .nav-btn below is the plain-CSS equivalent of the rule that was
+   silently doing nothing while it used @apply inside a type="text/css" block.
+   ============================================================================ */
+
+@import url("../vendor/fonts/fonts.css");
+
+        :root { --grid-opacity: 0.05; }
+        .dark { --grid-opacity: 0.2; }
+
+        html { overflow-x: hidden; }
+        body {
+            overflow-x: hidden;
+            font-family: "JetBrains Mono", monospace;
+            background-color: #f1f5f9;
+            background-image: 
+                linear-gradient(rgba(0, 71, 171, var(--grid-opacity)) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 71, 171, var(--grid-opacity)) 1px, transparent 1px);
+            background-size: 30px 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark body { background-color: #0f172a; }
+
+        .industrial-card {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #1e293b;
+            background: white;
+            transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .dark .industrial-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .industrial-card:hover {
+            transform: translate(4px, -4px);
+            box-shadow: -8px 8px 0px #ff6b00;
+        }
+
+        /* Scanline Effect */
+        .industrial-card::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .status-blink { animation: blink 1.2s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .technical-header {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            border-left: 4px solid #ff6b00;
+            padding-left: 1rem;
+            font-weight: 800;
+        }
+
+        /* Smooth progress bar fill */
+        .progress-fill { transition: width 1.5s ease-in-out; }
+
+/* Updated Certification Section to be Reactive */
+.cert-archive {
+    position: relative;
+    padding: 40px 0;
+    transition: all 0.3s ease;
+}
+
+.cert-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    /* Deliberately `auto`, not `smooth`: the marquee sets scrollLeft every
+       frame, and smooth behaviour would animate each tiny step and stutter.
+       The arrow buttons ask for smooth explicitly via scrollBy() instead. */
+    scroll-behavior: auto;
+    padding: 20px 0;
+    /* Hide scrollbar */
+    ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.cert-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure cards match the industrial-card style but with fixed width */
+.cert-item {
+    min-width: 300px;
+    flex-shrink: 0;
+}
+
+.nav-btn {
+    border: 1px solid #1e293b;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.dark .nav-btn { border-color: #ffffff; }
+
+.nav-btn:hover {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+    color: #ffffff;
+}
+
+/* ============ Expand-in-place cards ============
+   Used by Hobbies > Programming and Hobbies > E-Games. Clicking the card
+   enlarges it and reveals its own detail panel in place, instead of
+   navigating straight off the page. The real outbound link lives inside the
+   panel, so leaving this page becomes a deliberate second click.
+
+   A div with role="button" rather than a real <button>, because the panel
+   contains an <a> and interactive content inside a <button> is invalid HTML
+   (and browsers handle that nesting inconsistently). Keyboard support is
+   wired up in JS to match. Same approach the Gamer page already uses for
+   its game tiles. */
+.expand-card { cursor: pointer; }
+
+/* Declared after .industrial-card:hover deliberately: both selectors carry
+   the same specificity, so source order is what makes the expanded state win
+   while the pointer is still resting on the card. */
+.expand-card[aria-expanded="true"] {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: -10px 10px 0px #ff6b00;
+    z-index: 20;
+}
+
+.card-expand {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    margin-top: 0;
+    transition: grid-template-rows 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+}
+
+/* The 0fr -> 1fr row transition needs a single child that can actually be
+   clipped, hence the inner wrapper. */
+.card-expand > div {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.expand-card[aria-expanded="true"] .card-expand {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 0.85rem;
+}
+
+/* The chevron flips to signal the card is a toggle, not a link. */
+.expand-card .expand-chevron { transition: transform 0.3s ease; }
+.expand-card[aria-expanded="true"] .expand-chevron { transform: rotate(180deg); }
+
+@media (prefers-reduced-motion: reduce) {
+    .expand-card[aria-expanded="true"] { transform: none; }
+    .card-expand,
+    .expand-card .expand-chevron { transition: none; }
+}
+    
+
+      .cookie-banner {
+        display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+        flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+        padding: 16px 20px; background: var(--panel, #14181f);
+        border-top: 1px solid var(--line, var(--border, rgba(255,255,255,0.15)));
+        color: var(--text, #f2f2f2); font-family: inherit; font-size: 0.85rem;
+        box-shadow: 0 -8px 24px rgba(0,0,0,0.35);
+      }
+      .cookie-banner p { margin: 0; max-width: 640px; line-height: 1.6; color: inherit; }
+      .cookie-banner .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+      .cookie-banner button {
+        border: 1px solid var(--line, var(--border, rgba(255,255,255,0.2))); background: transparent;
+        color: inherit; padding: 9px 16px; border-radius: 999px; font-size: 0.8rem;
+        font-weight: 700; cursor: pointer; font-family: inherit;
+      }
+      .cookie-banner button#cookieAccept { background: var(--primary, #38bdf8); color: #06140f; border-color: transparent; }
+
+
+/* ======================= Group cards with a scroll track =======================
+   Each category (AI Projects, E-Games, ...) is its own bordered card, and its
+   items sit in one horizontally scrolling track rather than a wrapping grid --
+   a group of 16 entries then takes the same vertical space as one of 3.
+
+   overflow-x on the track forces overflow-y to compute as hidden, which would
+   clip a card's hover lift and its enlarge transform. So inside a track the
+   cards do not scale -- they grow via the panel instead, and the accent
+   shadow carries the "selected" feedback that the scale transform gave
+   elsewhere on the page. */
+.group-card {
+    position: relative;
+    border: 2px solid #1e293b;
+    background: #ffffff;
+    padding: 1.5rem;
+}
+
+.dark .group-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.group-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 1px solid #1e293b;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.dark .group-nav { border-color: #475569; color: #e2e8f0; }
+
+.group-nav:hover {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+    color: #ffffff;
+}
+
+.group-scroller { position: relative; margin: 0 -0.25rem; }
+
+.group-track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-items: flex-start;
+    padding: 0.75rem 0.25rem 1.25rem;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-x: contain;
+}
+
+.group-track::-webkit-scrollbar { display: none; }
+
+.group-track > * {
+    flex: 0 0 clamp(240px, 78vw, 300px);
+    scroll-snap-align: start;
+}
+
+.group-track .expand-card[aria-expanded="true"] {
+    transform: none;
+    box-shadow: -8px 8px 0px #ff6b00;
+}
+
+/* Edge fades stay on permanently -- the track loops in both directions, so
+   there is always another card past either edge. */
+.group-scroller::before,
+.group-scroller::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2.5rem;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.group-scroller::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.group-scroller::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+}
+
+.dark .group-scroller::before { background: linear-gradient(to right, #1e293b, transparent); }
+.dark .group-scroller::after { background: linear-gradient(to left, #1e293b, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+    .group-track { scroll-behavior: auto; }
+}
+
+/* ======================= Responsive: phones, tablets, watches =======================
+   Tailwind's own sm/md/lg utilities (sm:grid-cols-2, lg:text-8xl, etc.) already
+   handle phone -> tablet -> desktop for the grid layouts and the headline.
+   This block covers what those utilities don't reach: components with fixed
+   pixel sizing -- the nav bar's badges, the group-nav/nav-btn tap targets,
+   the group-track card width -- that need to keep working all the way down
+   to watch-class browsers (Wear OS/Tizen, ~192-280px wide) and back up
+   through tablets in either orientation. */
+
+/* Tap targets: Apple's HIG and Google's Material both recommend >=44x44px
+   for anything a finger taps, well above what a mouse pointer needs.
+   (pointer: coarse) targets touchscreens specifically, so a desktop mouse
+   user keeps the tighter sizing the design actually calls for. */
+@media (pointer: coarse) {
+    .group-nav {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+    .nav-btn {
+        padding: 0.75rem 1.1rem;
+    }
+    #theme-toggle {
+        padding: 0.75rem;
+    }
+}
+
+/* Phones, below Tailwind's own `sm` breakpoint (640px): tighten the spacing
+   that is otherwise fixed in px regardless of viewport width. */
+@media (max-width: 639px) {
+    .group-card { padding: 1rem; }
+    .group-track { gap: 0.75rem; padding: 0.5rem 0.25rem 1rem; }
+    /* 78vw forced a 240px floor even on a viewport narrower than that,
+       pushing the page itself wider than the screen; 82vw with a lower
+       floor stays inside a 320px phone instead of fighting it. */
+    .group-track > * { flex-basis: clamp(200px, 82vw, 300px); }
+    .cert-item { min-width: 240px; }
+}
+
+/* Watch-class browsers and the odd very old/small phone. The live clock is
+   the first thing to drop -- it's a real clock, not decoration, but it's
+   also not load-bearing information, and "Connected" plus the theme toggle
+   matter more when every pixel of nav width counts. */
+@media (max-width: 280px) {
+    #pk-clock { display: none; }
+    .nav-left, .nav-right { gap: 0.5rem; }
+    .group-card { padding: 0.75rem; }
+}
+
+/* ======================= Feedback widget =======================
+   The star rating is five plain <button>s (not a <select> or radio inputs
+   styled to look like stars) so clicking star 3 obviously means "rate 3",
+   with no extra labelling needed beyond each button's own aria-label.
+   Filled state is driven by a CSS class (.is-filled) that feedback.js
+   toggles up to the clicked/hovered index, not by DOM order or :nth-child,
+   so the same five buttons work for both hover preview and the committed
+   value. */
+.feedback-star {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #cbd5e1;
+    line-height: 1;
+    padding: 0.15rem;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.dark .feedback-star { color: #475569; }
+
+.feedback-star.is-filled { color: #ff6b00; }
+
+.feedback-star:hover { transform: scale(1.15); }
+
+.feedback-star:focus-visible {
+    outline: 2px solid #ff6b00;
+    outline-offset: 2px;
+}
+
+#feedback-form input[type="text"],
+#feedback-form textarea {
+    border-radius: 0;
+}
+
+#feedback-form input[type="text"]:focus,
+#feedback-form textarea:focus {
+    outline: 2px solid #ff6b00;
+    outline-offset: -1px;
+}
+
+.feedback-entry {
+    border-left: 3px solid #ff6b00;
+    padding: 0.5rem 0 0.5rem 0.75rem;
+    font-size: 11px;
+}
+
+.feedback-entry .feedback-entry-stars { color: #ff6b00; letter-spacing: 1px; }
+
+@media (pointer: coarse) {
+    .feedback-star { font-size: 1.75rem; padding: 0.35rem; }
+}

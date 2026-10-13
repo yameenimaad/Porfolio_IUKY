@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMAAD YAMEEN | INDUSTRIAL TERMINAL CV</title>
+
+    <script src="../vendor/tailwind/tailwind-play-cdn.js"></script>
+    <link rel="stylesheet" href="../vendor/fontawesome/css/all.min.css" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        industrial: {
+                        // Original Industrial Palette
+                        orange: "#FF6B00",
+                        blue: "#0047AB",
+                        steel: "#1e293b",
+                        dark: "#0f172a",
+                        purple: "#800080" ,
+                        yellow: "#ffff00" ,
+                        red: "#ff1838"  ,
+                    // Expanded Accent Palette
+                        white: "#FFFFFF",
+                        black: "#000000",
+                        silver: "#C0C0C0",
+                        grey: "#808080",
+                        brown: "#8B4513",
+                        lightbrown: "#f28538",
+                        green: "#00FF00",
+                        indigo: "#4B0082",
+                        violet: "#EE82EE",
+                        maroon: "#800000",
+                        pink: "#FFC0CB",
+                        skyblue: "#87CEEB",
+                        },
+                    },
+                    fontFamily: {
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                },
+            },
+        };
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function printCV() {
+            window.print();
+        }
+    </script>
+
+    <style type="text/css">
+        @import url("../vendor/fonts/fonts.css");
+
+        body {
+            font-family: "JetBrains Mono", monospace;
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark body {
+            background-color: #0f172a;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+        }
+
+        .industrial-card {
+            position: relative;
+            border: 2px solid #e2e8f0;
+            background: #ffffff;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .dark .industrial-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .industrial-card:hover {
+            transform: translate(4px, -4px);
+            box-shadow: -8px 8px 0px #FF6B00;
+        }
+
+        .technical-header {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            border-left: 4px solid #FF6B00;
+            padding-left: 1rem;
+            font-weight: 800;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .industrial-card { border: 1px solid #ccc !important; box-shadow: none !important; transform: none !important; color: black !important;}
+            .dark body { background: white !important; color: black !important; }
+            .dark .industrial-card { background: white !important; border: 1px solid #ccc !important; color: black !important; }
+            .technical-header { border-left: 4px solid black !important; }
+        }
+    </style>
+    <style>
+      .cookie-banner {
+        display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+        flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+        padding: 16px 20px; background: var(--panel, #14181f);
+        border-top: 1px solid var(--line, var(--border, rgba(255,255,255,0.15)));
+        color: var(--text, #f2f2f2); font-family: inherit; font-size: 0.85rem;
+        box-shadow: 0 -8px 24px rgba(0,0,0,0.35);
+      }
+      .cookie-banner p { margin: 0; max-width: 640px; line-height: 1.6; color: inherit; }
+      .cookie-banner .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+      .cookie-banner button {
+        border: 1px solid var(--line, var(--border, rgba(255,255,255,0.2))); background: transparent;
+        color: inherit; padding: 9px 16px; border-radius: 999px; font-size: 0.8rem;
+        font-weight: 700; cursor: pointer; font-family: inherit;
+      }
+      .cookie-banner button#cookieAccept { background: var(--primary, #38bdf8); color: #06140f; border-color: transparent; }
+    </style>
+</head>
+
+<body class="text-slate-900 dark:text-slate-100 antialiased p-4 md:p-8">
+
+    <div class="fixed top-6 right-6 z-50 flex gap-2 no-print">
+        <button onclick="toggleDarkMode()" class="p-3 industrial-card hover:bg-industrial-orange hover:text-white transition-all shadow-[4px_4px_0px_#ff6b00] hover:shadow-none" title="Toggle Mode">
+            <i class="fas fa-circle-half-stroke"></i>
+        </button>
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+        <header class="industrial-card p-6 mb-8 border-industrial-orange/30">
+            <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                <div class="industrial-card p-1 border-industrial-orange/30 w-32 h-32 shrink-0 overflow-hidden">
+                    <img src="IMG_8340.jpg" alt="Imaad Yameen" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+
+                <div class="flex-grow text-center md:text-left">
+                    <h1 class="text-4xl font-black uppercase tracking-tighter mb-1">Imaad Ullah Khan Yameen</h1>
+                    <h2 class="text-industrial-orange font-bold uppercase text-xs tracking-widest mb-4">// Industrial Engineer | CAD Designer | FDM/FFF | SSYB & SSWB</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-[10px] font-bold uppercase">
+                        <a href="mailto:yameenimaad@gmail.com" target="_blank" class="hover:text-industrial-orange transition-colors">
+                            <i class="fas fa-envelope mr-2 text-industrial-orange"></i> yameenimaad@gmail.com
+                        </a>
+                        <a href="https://linkedin.com/in/imaad-ullah-khan-yameen" target="_blank" class="hover:text-industrial-orange transition-colors">
+                            <i class="fab fa-linkedin mr-2 text-industrial-orange"></i> LinkedIn_Profile
+                        </a>
+                    <a href="https://maps.app.goo.gl/nKvpDaRm6zaMeiEt7" target="_blank" class="hover:text-industrial-orange transition-colors">
+                        <p><i class="fas fa-map-marker-alt mr-2 text-industrial-orange"></i> Peshawar, KPK, Pakistan</p>
+                    </a>
+                    <a href="https://wa.me/923449295545" target="_blank" class="hover:text-industrial-orange transition-colors">
+                        <p><i class="fas fa-phone mr-2 text-industrial-orange"></i> +92-344-9295545</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="space-y-8">
+                <section>
+                    <h3 class="technical-header text-sm mb-6">Education</h3>
+                    <div class="industrial-card p-4">
+                        <p class="font-black text-xs uppercase text-industrial-blue dark:text-blue-400">BSc Industrial Engineering</p>
+                        <p class="text-[10px] opacity-70 mb-2">UET Peshawar | Sept 2021 - Aug 2025</p>
+                        <div class="bg-industrial-blue/10 dark:bg-industrial-blue/5 p-2 border-l-2 border-industrial-blue flex justify-between">
+                            <span class="text-[10px] font-bold">CGPA:</span>
+                            <span class="text-xs font-black">3.75 / 4.00</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section><h3 class="technical-header text-sm mb-6">Technical Skills</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">MS_Office</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Fusion360</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">SolidWorks</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Minitab_SPSS</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Matlab_Octave</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Arena_Sim</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">MS_Project</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Primavera P6</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">AutoCAD</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">VS_Code</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">DaVinci_Resolve</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Canva_Affinity</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Adobe_Illustrator</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Snapseed</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Ultimaker_Cura</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Prusa_Slicer</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Orca_Slicer</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Bambulab_Studio</div>
+                    </div>
+                </section>
+
+                <section><h3 class="technical-header text-sm mb-6">Skill Set</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Observation_Skills</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Analytical_Skills</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Leadership</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Team_Management</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Project_Management</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Mechanical_CAD/CAM</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Designing</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Editing</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Programming</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Computer_Skills</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Quality_Assurance</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Lean_Six_Sigma</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Quality_Control</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">3D_Printing</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">Data_Ethics</div>
+                        <div class="industrial-card p-2 text-center text-[9px] font-bold uppercase">UAV_Operator</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="md:col-span-2 space-y-8">
+                <section>
+                    <h3 class="technical-header text-sm mb-6">Work Experience</h3>
+                    <div class="space-y-6">
+                        <div class="industrial-card p-6 border-l-4 border-l-industrial-blue">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">GET Engineer</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2026.09 - Current</span>
+                            </div>
+                            <p class="text-industrial-purple dark:text-yellow-400 text-[10px] font-bold mb-4 uppercase">Pakistan Engineering Council (PEC) | Peshawar, KPK, Pakistan &middot; On-site</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Learning &amp; training on soft skills in the PGMI Hayatabad Phase IV program, Peshawar, KPK, under PEC-appointed soft skills trainers.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Communication, Team Leadership</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-industrial-maroon">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">Exam Investigator</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2026.05 - 2026.05</span>
+                            </div>
+                            <p class="text-industrial-maroon dark:text-pink-400 text-[10px] font-bold mb-4 uppercase">BISE Peshawar | Peshawar, KPK, Pakistan &middot; On-site</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Conducted the BISEP HSSC I &amp; II Examination duties and activities.</li>
+                                <li>Performance monitoring and ensured safe conductance of examinations.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Critical Thinking, Investigation</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-industrial-blue">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">Graduate Engineering Trainee</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2026.04 - 2026.09</span>
+                            </div>
+                            <p class="text-industrial-purple dark:text-yellow-400 text-[10px] font-bold mb-4 uppercase">PCSIR | Peshawar, KPK, Pakistan &middot; On-site</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>GET placement program by PEC at PCSIR Peshawar.</li>
+                                <li>Operated FDM 3D printers &mdash; operations, functions, and project-related tasks.</li>
+                                <li>Worked in the CNC workstation on calibration, maintenance, and observation of VMC machines.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Finite Element Analysis (FEA), Critical Thinking</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-industrial-black">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">Computer-Aided Design Designer</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2026.01 - 2026.01</span>
+                            </div>
+                            <p class="text-industrial-orange text-[10px] font-bold mb-4 uppercase">SK Engineering &amp; Manufacturing | Jalozai Industrial Zone, Pabbi, KPK, Pakistan &middot; On-site</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Worked as a SolidWorks CAD designer on mold design and material gauge design.</li>
+                                <li>Designed precise molds for industrial injection molding systems; validated production quality using custom "Go/No-Go" gauges.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Critical Thinking, Team Management</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-slate-400">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">Production, Inventory &amp; Finance Manager</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2018.05 - 2019.05</span>
+                            </div>
+                            <p class="text-industrial-brown dark:text-industrial-green text-[10px] font-bold mb-4 uppercase">Jhagra Tailor &amp; Clothings | Peshawar, KPK, Pakistan &middot; Seasonal</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Managed the shop across three functions: production, inventory, and finance.</li>
+                                <li>Handled financial management and resource management as shop manager.</li>
+                                <li>Oversaw inventory control and inventory management; performed financial analysis.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Decision-Making, Inventory Control, Financial Analysis</p>
+                        </div>
+
+                        <h3 class="technical-header text-sm mb-6">Internship Experience</h3>
+
+                        <div class="industrial-card p-6 border-l-4 border-l-industrial-indigo">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">AI Agent Internship Internee</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2026.08 - Current</span>
+                            </div>
+                            <p class="text-industrial-blue dark:text-industrial-skyblue text-[10px] font-bold mb-4 uppercase">Pak Angels | Pakistan &middot; Remote</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Worked as an AI agents learner, observer, and developer across multiple LLMs &mdash; ChatGPT, Gemini, Claude, and Grok.</li>
+                                <li>Built with Streamlit and Gradio web app platforms; participated in hackathons and entrepreneurship activities.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Programming, Python</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-industrial-skyblue">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">GIS &amp; Remote Sensing Intern</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2026.07 - 2026.09</span>
+                            </div>
+                            <p class="text-industrial-blue dark:text-industrial-skyblue text-[10px] font-bold mb-4 uppercase">AI Geo Navigators | Islamabad, Pakistan &middot; Remote</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Learned GIS, Google Earth Engine, remote sensing, AI/ML, hazard control, and risk assessment.</li>
+                                <li>Completed Task #1: Pakistan Population Index, and Task #2: "Pakistan Population vs. Land Surface Temperature Dashboard" in Google Earth Engine.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Critical Thinking, Remote Sensing</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-industrial-purple">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">FYD Project Head</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2024.09 - 2025.08</span>
+                            </div>
+                            <p class="text-industrial-purple dark:text-industrial-skyblue text-[10px] font-bold mb-4 uppercase">Northern Bottling Co. (Pvt) Ltd. &mdash; Franchise of Pepsi Cola International | Peshawar, KPK, Pakistan &middot; Hybrid</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>System optimization: spearheaded the analysis and implementation of a plan that improved inventory inspection efficiency by 25%.</li>
+                                <li>Process automation: engineered and programmed an automated UAV system to replace manual warehouse counts, reducing human error.</li>
+                                <li>Leadership: led a cross-functional team to streamline routine industrial checkups through advanced tracking and system automation.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Analytical Skills, Finite Element Analysis (FEA)</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-slate-400">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">Management &amp; CNC Internship</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2024.07 - 2024.09</span>
+                            </div>
+                            <p class="text-industrial-blue dark:text-industrial-skyblue text-[10px] font-bold mb-4 uppercase">SK Engineering and Manufacturing | Peshawar, KPK, Pakistan &middot; On-site</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Gained practical experience of theoretical coursework on related processes including CNC machines and inventory control.</li>
+                                <li>Implemented Lean principles to eliminate operational waste; standardized workflows using Job Cards and Machine Control Cards.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Analytical Skills, Six Sigma</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-industrial-blue">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">Society Deputy Design Head</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2023.09 - 2025.07</span>
+                            </div>
+                            <p class="text-industrial-blue dark:text-blue-400 text-[10px] font-bold mb-4 uppercase">IISE Student Chapter, UET Peshawar (Jalozai Campus) | Jalozai, Pabbi, KPK, Pakistan &middot; Hybrid</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Led visual and technical design within the Institute of Industrial and Systems Engineers (IISE) student chapter.</li>
+                                <li>Spearheaded high-impact digital assets and technical layouts for departmental initiatives and professional events.</li>
+                                <li>As Inspection Designer, applied industrial engineering principles to develop standardized evaluation frameworks and quality control checklists.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Critical Thinking, English</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-slate-500">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">Management &amp; Mechanical Intern</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2023.06 - 2023.08</span>
+                            </div>
+                            <p class="text-industrial-red text-[10px] font-bold mb-4 uppercase">Dewan Cement Limited | Harnai District, Pakistan &middot; Hybrid</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Worked as an internee for observation and data collection across different sectors of the plant.</li>
+                                <li>Gained knowledge of the cement manufacturing process, pyro processing, and energy audit practices.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Critical Thinking, Meteorology</p>
+                        </div>
+                        <div class="industrial-card p-6 border-l-4 border-l-slate-400">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-black uppercase text-sm">Electronic Interne</h4>
+                                <span class="text-[10px] opacity-50 font-bold">2020.02 - 2020.04</span>
+                            </div>
+                            <p class="text-industrial-grey dark:text-slate-300 text-[10px] font-bold mb-4 uppercase">Universal Electronics, Peshawar | Peshawar, KPK, Pakistan &middot; On-site</p>
+                            <ul class="list-disc list-inside text-xs space-y-1.5 opacity-80">
+                                <li>Interned to understand and experience different types of electronics and their functions.</li>
+                                <li>Learned to diagnose and troubleshoot common issues in electronic devices.</li>
+                            </ul>
+                            <p class="text-[9px] opacity-40 uppercase font-bold mt-2">Skills: Critical Thinking, Electronics Repair</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="technical-header text-sm mb-6">Projects</h3>
+                    <div class="space-y-6">
+                        <div class="industrial-card p-6 bg-industrial-purple/5 border-l-4 border-l-industrial-purple">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-black uppercase text-sm">rPET Recycling System</h4>
+                                <span class="bg-industrial-green text-black text-[9px] px-2 py-1 font-bold italic">Recycling</span>
+                            </div>
+                            <p class="text-xs opacity-80 leading-relaxed mb-4">
+                            Engineered a circular economy mechanical recycling system, designing a custom extrusion architecture that reclaims PET plastic into 3D-printing filament.</p>
+                            <div class="flex gap-4">
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Green_Environment</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Recycling,Reuse</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#3d_printing</span>
+                            </div>
+                        </div>
+                        <div class="industrial-card p-6 bg-industrial-purple/5 border-l-4 border-l-industrial-purple">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-black uppercase text-sm">UAV Inventory Control System</h4>
+                                <span class="bg-industrial-green text-black text-[9px] px-2 py-1 font-bold italic">+25% EFFICIENCY</span>
+                            </div>
+                            <p class="text-xs opacity-80 leading-relaxed mb-4">
+                                Developed an autonomous UAV system to automate large-scale warehouse inventory tracking. Integrated Python-based navigation to replace manual counts and minimize human error.
+                            </p>
+                            <div class="flex gap-4">
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Python</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Automation</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Industry_4.0</span>
+                            </div>
+                        </div>
+                        <div class="industrial-card p-6 bg-industrial-purple/5 border-l-4 border-l-industrial-purple">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-black uppercase text-sm">Tailoring Shop ERP System</h4>
+                                <span class="bg-industrial-green text-black text-[9px] px-2 py-1 font-bold italic">Python</span>
+                            </div>
+                            <p class="text-xs opacity-80 leading-relaxed mb-4">
+                            Built a custom ERP system in Python for Jhagra Tailoring & Clothing Center, digitizing order tracking, customer measurements, and inventory for a real retail tailoring business.</p>
+                            <div class="flex gap-4">
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Python</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#ERP</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Small_Business</span>
+                            </div>
+                        </div>
+                        <div class="industrial-card p-6 bg-industrial-purple/5 border-l-4 border-l-industrial-purple">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-black uppercase text-sm">Population Distribution GIS Analysis</h4>
+                                <span class="bg-industrial-green text-black text-[9px] px-2 py-1 font-bold italic">ArcGIS</span>
+                            </div>
+                            <p class="text-xs opacity-80 leading-relaxed mb-4">
+                            Conducted population distribution and demographic mapping analysis in ArcGIS as part of AI Geo Navigators, translating raw census and spatial data into actionable geographic insight.</p>
+                            <div class="flex gap-4">
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#ArcGIS</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Population_Mapping</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#AI_Geo_Navigators</span>
+                            </div>
+                        </div>
+                        <div class="industrial-card p-6 bg-industrial-purple/5 border-l-4 border-l-industrial-purple">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-black uppercase text-sm">GIS & AI/ML Remote Sensing Projects</h4>
+                                <span class="bg-industrial-green text-black text-[9px] px-2 py-1 font-bold italic">GEE + Colab</span>
+                            </div>
+                            <p class="text-xs opacity-80 leading-relaxed mb-4">
+                            Delivered GIS and AI/ML projects on real-life data and tasks with AI Geo Navigators, using Google Earth Engine for satellite data processing and Google Colab for model training and analysis.</p>
+                            <div class="flex gap-4">
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Google_Earth_Engine</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Google_Colab</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#AI_Geo_Navigators</span>
+                            </div>
+                        </div>
+                        <div class="industrial-card p-6 bg-industrial-purple/5 border-l-4 border-l-industrial-purple">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-black uppercase text-sm">ESP32 Weather Monitoring Station</h4>
+                                <span class="bg-industrial-green text-black text-[9px] px-2 py-1 font-bold italic">IoT</span>
+                            </div>
+                            <p class="text-xs opacity-80 leading-relaxed mb-4">
+                            Programmed an ESP32-based weather station in Arduino IDE, publishing live sensor readings to an MQTT broker for real-time remote monitoring.</p>
+                            <div class="flex gap-4">
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#ESP32</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#MQTT</span>
+                                <span class="text-[9px] font-bold opacity-40 uppercase">#Arduino_IDE</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="technical-header text-sm mb-6">Certifications</h3>
+                    <p class="text-[9px] opacity-40 uppercase tracking-widest mb-3">67 Certifications — LinkedIn Verified (Sep 2026)</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Climate Risk Screening for Development Planning</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Sep 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Pakistan Engineering Council</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Fundamentals of Open Source GIS</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">MindLuster</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Climate Risk Assessment and Resilience Planning</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">National Productivity Organization</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Sustainable Supply Chain Management</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">National Productivity Organization</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Life Cycle Assessment</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">National Productivity Organization</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Introduction to Sustainable Development Goal Indicators Under FAO Custodianship</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">FAO</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Python Application Development</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">MindLuster</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Critical Thinking in the AI Era</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">ISO 9001 Quality Management System for SMEs</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">May 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">National Productivity Organization</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Master Structural Design of Buildings</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">May 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Yeforum Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">SLA 3D Printing</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">May 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Sinterit</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Master Class: Essence of Lean Six Sigma</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Mar 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">BGMC Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Masterclass: Essence of 8D Problem Solving</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Mar 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">BGMC Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Basics of Lean Six Sigma Statistics in Manufacturing</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Mar 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">BGMC Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Master Class: Significance of Lean Six Sigma for Students &amp; Industrial Professionals</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Mar 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">BGMC Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Power BI MasterClass: Harnessing the Might of Power BI</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Mar 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">BGMC Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Soft Skills Training</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Mar 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">International Centre for Migration Policy Development (ICMPD)</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">MS Excel (365 Functions): Harnessing the Might of Excel</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">BGMC Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Solidworks MasterClass: Harnessing the Might of Solidworks</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">BGMC Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Certified Lean Six Sigma White Belt</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">BGMC Group</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Introduction to Supply Chain</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">uttana Online Leadership Learning</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Lean Fundamentals</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">uttana Online Leadership Learning</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Introduction to 5S Concept</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">uttana Online Leadership Learning</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Introduction to Total Productive Maintenance</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">uttana Online Leadership Learning</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">The Lean Committee</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">uttana Online Leadership Learning</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Overview of Single Minute Exchange of Die System (SMED)</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">uttana Online Leadership Learning</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Overview of Value Stream Mapping (VSM)</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Feb 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">uttana Online Leadership Learning</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">SOLIDWORKS Advanced Sketching and Reference Geometry</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jan 2026</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Dassault Systemes</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Fundamentals of Deep Learning</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Dec 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">NVIDIA</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Image Generation with AI Training Course</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Nov 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Simplilearn</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">YouTube Live Streaming Engagement</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Oct 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Six Sigma Yellow Belt</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Oct 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Kennesaw State University</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Six Sigma Tools for Improve and Control</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Oct 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Kennesaw State University</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Customer Experience (CX) for Business Success</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Sep 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Agile Project Management Certifications</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Sep 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">AI for Beginners</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Success Mindset</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Resume Writing and Job Interviewing</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Effective Leadership</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">ISO 9001:2015</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">May 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Alison</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Six Sigma Tools for Define and Measure</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Kennesaw State University</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Business E-Mail</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Six Sigma Principles</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Kennesaw State University</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Generative AI Content Creation</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Adobe</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Becoming an SAP Professional</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">SAP</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Supply Chain Planning</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">UC Irvine</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Six Sigma Tools for Analyze</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Kennesaw State University</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">SOLIDWORKS Foundations: Sketching and Extrusion</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Dassault Systemes</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">How to Get Into Robotics</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">University of Leeds</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Drones for Environmental Science</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Duke University</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Use SurveyMonkey to Create a Survey and Analyze Results</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">FEM - Linear, Nonlinear Analysis &amp; Post-Processing</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Build a Professional Resume using Canva</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">May 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">3D Printing</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Mar 2025</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">HP LIFE</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">How To Visualize Your Data Using Microsoft PowerPoint</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Aug 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Health And Safety</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">May 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">TSTDC</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Create an Infographic in Canva</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jul 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Build a Free Website with WordPress</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Create a Promotional Video using Canva</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">5 Ways to Build a Better LinkedIn Profile</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">HTML</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Sep 2022</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Sololearn</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Introduction to Data Analysis using Microsoft Excel</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Getting Started with Microsoft Word</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Getting Started with Microsoft PowerPoint</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Use Canva to Design Digital Course Collateral</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Using Basic Formulas and Functions in Microsoft Excel</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">Jun 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                        <div class="industrial-card p-3 border-l-4 border-l-industrial-orange">
+                            <div class="flex justify-between items-start gap-2">
+                                <p class="text-[10px] font-black uppercase leading-tight">Introduction to Microsoft Excel</p>
+                                <span class="text-[8px] font-bold opacity-50 shrink-0 whitespace-nowrap">May 2024</span>
+                            </div>
+                            <p class="text-[9px] uppercase opacity-50 mt-1">Coursera</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+        <footer class="mt-12 pt-8 border-t border-slate-800/20 text-center no-print">
+            <button onclick="printCV()" class="industrial-card px-6 py-2 mb-6 inline-flex items-center gap-2 hover:bg-industrial-orange hover:text-white transition-all shadow-[4px_4px_0px_#ff6b00] hover:shadow-none">
+                <i class="fas fa-file-pdf"></i>
+                <span class="text-[10px] font-black uppercase tracking-widest">Generate_PDF</span>
+            </button>
+            <a href="ATS_Resume.html" class="industrial-card px-6 py-2 mb-6 ml-3 inline-flex items-center gap-2 hover:bg-industrial-orange hover:text-white transition-all shadow-[4px_4px_0px_#ff6b00] hover:shadow-none">
+                <i class="fas fa-file-lines"></i>
+                <span class="text-[10px] font-black uppercase tracking-widest">ATS_Version</span>
+            </a>
+            <p class="text-[9px] font-black uppercase tracking-[0.5em] opacity-30">
+                System_Output // v2.1.0_CV_STABLE // 2026
+            </p>
+        </footer>
+    </div>
+
+    <a href="../../index.html" class="fixed bottom-6 left-6 z-50 group no-print">
+        <div class="industrial-card p-3 flex items-center gap-3 bg-white dark:bg-slate-900 border-industrial-orange shadow-[4px_4px_0px_#ff6b00] hover:shadow-none hover:translate-x-1 hover:-translate-y-1 transition-all">
+            <i class="fas fa-terminal text-industrial-orange animate-pulse"></i>
+            <span class="text-[10px] font-black uppercase tracking-widest">Return_to_Main</span>
+        </div>
+    </a>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>This site uses cookies to remember things like your saved settings in the interactive labs. Nothing is tracked and nothing is sent anywhere — it all stays in your browser.</p>
+  <div class="cookie-actions">
+    <button type="button" id="cookieDecline">Decline</button>
+    <button type="button" id="cookieAccept">Accept</button>
+  </div>
+</div>
+<script>
+  function setCookie(name, value, days) {
+    var expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax';
+  }
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+  function hasConsent() { return getCookie('cookie_consent') === 'accepted'; }
+  (function initCookieBanner() {
+    var banner = document.getElementById('cookieBanner');
+    var acceptBtn = document.getElementById('cookieAccept');
+    var declineBtn = document.getElementById('cookieDecline');
+    if (!banner) return;
+    if (!getCookie('cookie_consent')) banner.style.display = 'flex';
+    acceptBtn.addEventListener('click', function () {
+      setCookie('cookie_consent', 'accepted', 365);
+      banner.style.display = 'none';
+    });
+    declineBtn.addEventListener('click', function () {
+      setCookie('cookie_consent', 'declined', 365);
+      banner.style.display = 'none';
+    });
+  })();
+</script>
+</body>
+</html>
