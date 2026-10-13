@@ -1,0 +1,73 @@
+/* Index.css -- the odd one out among index.py, index.sql, Index.php,
+ * index.c++ and Javascript.js. Those five all "run" and print the same
+ * banner by reading the live index.html next to them; CSS has no concept
+ * of running standalone or reading a file, so pretending otherwise here
+ * would be dishonest. Instead, this is a real, self-contained, genuinely
+ * droppable component: a small "built by" badge in the same industrial/
+ * terminal visual language as the rest of this site (compare
+ * Assets/css/main.css's .technical-header and .industrial-card).
+ *
+ * Usage: link this file, then drop the markup below wherever you want the
+ * badge to appear.
+ *
+ *   <link rel="stylesheet" href="Index.css">
+ *   <a class="imaad-badge" href="https://danger-khan.github.io/Portfolio-IUKY/">
+ *     <span class="imaad-badge__dot" aria-hidden="true"></span>
+ *     Built by Imaad Yameen
+ *   </a>
+ */
+
+.imaad-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    color: #f1f5f9;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-left: 3px solid #ff6b00;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.imaad-badge:hover,
+.imaad-badge:focus-visible {
+    background: #0f172a;
+    border-color: #ff6b00;
+}
+
+.imaad-badge:focus-visible {
+    outline: 2px solid #ff6b00;
+    outline-offset: 2px;
+}
+
+.imaad-badge__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff6b00;
+    flex-shrink: 0;
+}
+
+/* A light-background page gets a light badge instead of the dark one above. */
+.imaad-badge--light {
+    color: #0f172a;
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.imaad-badge--light:hover,
+.imaad-badge--light:focus-visible {
+    background: #e2e8f0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .imaad-badge {
+        transition: none;
+    }
+}

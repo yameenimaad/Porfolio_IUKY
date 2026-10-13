@@ -1,150 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IMAAD YAMEEN | INDUSTRIAL TERMINAL</title>
+    <meta name="description" content="Imaad Ullah Khan Yameen — Industrial Engineer, CAD designer, and Six Sigma/ISO 9001 practitioner. Real, working AI, GIS &amp; mechanical projects, plus a 3D/creative portfolio and an off-the-clock look at programming, DIY electronics, and gaming." />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        industrial: {
-                        // Original Industrial Palette
-                            orange: "#FF6B00",
-                            blue: "#0047AB",
-                            steel: "#1e293b",
-                            dark: "#0f172a",
-                            purple: "#800080" ,
-                            yellow: "#ffff00" ,
-                            red: "#ff0000"  ,
-                        // Expanded Accent Palette
-                            white: "#FFFFFF",
-                            black: "#000000" ,
-                            silver: "#C0C0C0",
-                            grey: "#808080",
-                            brown: "#8B4513",
-                            green: "#00FF00",
-                            indigo: "#4B0082",
-                            violet: "#EE82EE",
-                            maroon: "#800000",
-                            pink: "#FFC0CB",
-                            skyblue: "#87CEEB",
-                        },
-                    },
-                    fontFamily: {
-                        mono: ["JetBrains Mono", "monospace"],
-                    },
-                },
-            },
-        };
-    </script>
-
-    <style type="text/css">
-        @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700;800&display=swap");
-
-        :root { --grid-opacity: 0.05; }
-        .dark { --grid-opacity: 0.2; }
-
-        body {
-            font-family: "JetBrains Mono", monospace;
-            background-color: #f1f5f9;
-            background-image: 
-                linear-gradient(rgba(0, 71, 171, var(--grid-opacity)) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 71, 171, var(--grid-opacity)) 1px, transparent 1px);
-            background-size: 30px 30px;
-            transition: background-color 0.3s ease;
-        }
-
-        .dark body { background-color: #0f172a; }
-
-        .industrial-card {
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #1e293b;
-            background: white;
-            transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .dark .industrial-card {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        .industrial-card:hover {
-            transform: translate(4px, -4px);
-            box-shadow: -8px 8px 0px #ff6b00;
-        }
-
-        /* Scanline Effect */
-        .industrial-card::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
-        }
-
-        .status-blink { animation: blink 1.2s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .technical-header {
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            border-left: 4px solid #ff6b00;
-            padding-left: 1rem;
-            font-weight: 800;
-        }
-
-        /* Smooth progress bar fill */
-        .progress-fill { transition: width 1.5s ease-in-out; }
-
-/* Updated Certification Section to be Reactive */
-.cert-archive {
-    position: relative;
-    padding: 40px 0;
-    transition: all 0.3s ease;
-}
-
-.cert-track {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 20px 0;
-    /* Hide scrollbar */
-    ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.cert-track::-webkit-scrollbar {
-    display: none;
-}
-
-/* Ensure cards match the industrial-card style but with fixed width */
-.cert-item {
-    min-width: 300px;
-    flex-shrink: 0;
-}
-
-.nav-btn {
-    @apply border border-slate-800 dark:border-white p-2 px-4 hover:bg-industrial-orange hover:text-white hover:border-industrial-orange transition-all duration-200 uppercase text-[10px] font-bold;
-}
-    </style>
+    <script src="Assets/vendor/tailwind/tailwind-play-cdn.js"></script>
+    <link rel="stylesheet" href="Assets/vendor/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="Assets/css/main.css" />
+    <script src="Assets/js/tailwind-config.js"></script>
 </head>
 
 <body class="text-slate-900 dark:text-slate-100 antialiased">
 
     <nav class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-industrial-steel/20 px-6 py-3">
         <div class="max-w-7xl mx-auto flex justify-between items-center text-[11px] font-bold tracking-tighter">
-            <div class="flex items-center gap-6">
+            <div class="nav-left flex items-center gap-6">
                 <div class="flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-industrial-orange animate-pulse"></span>
                     <span class="text-industrial-orange uppercase">Connected</span>
@@ -153,7 +25,7 @@
                 <span class="hidden lg:inline opacity-40 uppercase">GPS_COORD: 34.01°N 71.52°E</span>
             </div>
 
-            <div class="flex items-center gap-6">
+            <div class="nav-right flex items-center gap-6">
                 <span class="status-blink text-green-600 dark:text-green-400 hidden sm:inline uppercase">● System_Active</span>
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                     <i id="theme-icon" class="fas fa-moon"></i>
@@ -168,8 +40,8 @@
                 <p class="text-industrial-orange font-black text-xs mb-4 tracking-[0.3em] uppercase">
                     // Engineering_Profile: 2026_V2
                 </p>
-                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase leading-none underline">
-                    Industrial <br />
+                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 uppercase leading-none underline">
+                    Applied AI & Hardware Integration <br />
                     <span style="-webkit-text-stroke: 0.3px currentColor;">Engineer</span>
                 </h1>
                 <p class="text-xl opacity-70 max-w-xl leading-relaxed font-light">
@@ -177,60 +49,12 @@
                     <span class="text-industrial-blue dark:text-blue-400 font-bold">Six Sigma</span> methodologies, &
                     <span class="text-industrial-green">autonomous system</span> integration.
                 </p>
-                <div class="mt-8">
-                    <a href="#portfolios" class="nav-btn inline-flex items-center gap-2">
-                        Explore Specialized Portfolios <i class="fas fa-arrow-down"></i>
-                    </a>
-                </div>
             </div>
-           <!-- // Performance Block -->
-           <!-- <div class="industrial-card p-6 border-industrial-orange/30">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="font-black text-xs uppercase tracking-widest">Core_Performance</h3>
-                    <i class="fas fa-microchip text-industrial-orange opacity-50"></i>
-                </div>
-
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between text-[10px] mb-2 font-bold uppercase">
-                            <span>Bachelor_CGPA</span><span>3.75 / 4.00</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="progress-fill bg-industrial-orange h-full" style="width:93.75%"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between text-[10px] mb-2 font-bold uppercase">
-                            <span>Process_Optimization</span><span>Yellow Belt</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="progress-fill bg-yellow-500 h-full" style="width:100%"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between text-[10px] mb-2 font-bold uppercase">
-                            <span>Compliance_Rating</span><span>ISO 9001</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="progress-fill bg-green-500 h-full" style="width:100%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
-                    <p class="text-[9px] opacity-40 uppercase leading-tight italic font-bold">
-                        Verified: UET Peshawar | NVIDIA DLI | ISO Quality Standards
-                    </p>
-                </div>
-            </div>
-        </div> -->
             <!-- // Picture Block -->
-           <div class="industrial-card p-2 border-industrial-orange/30 w-full max-w-[280px] mx-auto">
-                <div class="flex justify-center items-center overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-square"> 
-                    <img 
-                        src="img/dp.jpg"
+            <div class="industrial-card p-2 border-industrial-orange/30 w-full max-w-[280px] mx-auto">
+                <div class="flex justify-center items-center overflow-hidden bg-slate-100 dark:bg-slate-800 aspect-square">
+                    <img
+                        src="Assets/img/dp.jpg"
                         alt="Engr_Imaad_Yameen_Profile"
                         class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                     >
@@ -242,110 +66,39 @@
         </div>
     </header>
 
-    <div class="max-w-7xl mx-auto px-6">
-        <a href="resume/cv.html" target="_blank" class="industrial-card p-8 flex items-center justify-between group">
-            <div class="flex items-center gap-4">
-                <i class="fas fa-file-pdf text-3xl text-red-600"></i>
-                <div>
-                    <h4 class="font-black uppercase text-lg mb-1">Full_Resume_2026</h4>
-                    <p class="text-[11px] opacity-50 uppercase tracking-tighter">Academic & Professional History</p>
-                </div>
-            </div>
-            <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-orange"></i>
-        </a>
-    </div>
-
-    <section id="portfolios" class="py-12 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-8">
-            <h2 class="technical-header">specialized_Portfolios.sys</h2>
-            <span class="text-[10px] opacity-40 uppercase tracking-widest">7 Live Modules // Click_To_Enter</span>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <a href="./Portfoilos/CADCAMCAE/index.html" class="industrial-card p-6 group border-l-4 border-industrial-blue">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
-                        <i class="fas fa-ruler-combined text-xl text-industrial-blue group-hover:text-white"></i>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-blue"></i>
-                </div>
-                <h3 class="font-black uppercase text-sm mb-1">CAD / CAM / CAE</h3>
-                <p class="text-[11px] opacity-60 leading-relaxed">66 real SolidWorks files, live in-browser 3D STL viewer.</p>
-            </a>
-
-            <a href="./Portfoilos/GIS, remote sensing/index.html" class="industrial-card p-6 group border-l-4 border-industrial-skyblue">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 flex items-center justify-center bg-industrial-skyblue/10 transition-colors group-hover:bg-industrial-skyblue">
-                        <i class="fas fa-globe text-xl text-industrial-skyblue group-hover:text-white"></i>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-skyblue"></i>
-                </div>
-                <h3 class="font-black uppercase text-sm mb-1">GIS &amp; Remote Sensing</h3>
-                <p class="text-[11px] opacity-60 leading-relaxed">Google Earth Engine work + an interactive rotating globe.</p>
-            </a>
-
-            <a href="./Portfoilos/AI ,ML/ML/index.html" class="industrial-card p-6 group border-l-4 border-industrial-purple">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 flex items-center justify-center bg-industrial-purple/10 transition-colors group-hover:bg-industrial-purple">
-                        <i class="fas fa-brain text-xl text-industrial-purple group-hover:text-white"></i>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-purple"></i>
-                </div>
-                <h3 class="font-black uppercase text-sm mb-1">AI / ML Lab</h3>
-                <p class="text-[11px] opacity-60 leading-relaxed">Live regression &amp; forecasting engine — runs 100% locally.</p>
-            </a>
-
-            <a href="./Portfoilos/Embeded Systems &amp; Circuitry/index.html" class="industrial-card p-6 group border-l-4 border-industrial-green">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 flex items-center justify-center bg-industrial-green/10 transition-colors group-hover:bg-industrial-green">
-                        <i class="fas fa-microchip text-xl text-industrial-green group-hover:text-white"></i>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-green"></i>
-                </div>
-                <h3 class="font-black uppercase text-sm mb-1">Embedded Systems</h3>
-                <p class="text-[11px] opacity-60 leading-relaxed">Circuit-themed showcase of MCU &amp; IoT project work.</p>
-            </a>
-
-            <a href="./Portfoilos/3D,Website &amp; Graphics/index.html" class="industrial-card p-6 group border-l-4 border-industrial-yellow">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 flex items-center justify-center bg-industrial-yellow/10 transition-colors group-hover:bg-industrial-yellow">
-                        <i class="fas fa-cubes text-xl text-industrial-yellow group-hover:text-white"></i>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-yellow"></i>
-                </div>
-                <h3 class="font-black uppercase text-sm mb-1">Creative &amp; 3D</h3>
-                <p class="text-[11px] opacity-60 leading-relaxed">Interactive 3D world, plus graphic &amp; motion design systems.</p>
-            </a>
-
-            <a href="./Portfoilos/Programming/index.html" class="industrial-card p-6 group border-l-4 border-industrial-indigo">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 flex items-center justify-center bg-industrial-indigo/10 transition-colors group-hover:bg-industrial-indigo">
-                        <i class="fas fa-terminal text-xl text-industrial-indigo group-hover:text-white"></i>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-indigo"></i>
-                </div>
-                <h3 class="font-black uppercase text-sm mb-1">Programming</h3>
-                <p class="text-[11px] opacity-60 leading-relaxed">A real Python ERP app, live repos, and working code.</p>
-            </a>
-
-            <a href="./Portfoilos/Gamer/index.html" class="industrial-card p-6 group border-l-4 border-industrial-pink">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
-                        <i class="fas fa-gamepad text-xl text-industrial-pink group-hover:text-white"></i>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-pink"></i>
-                </div>
-                <h3 class="font-black uppercase text-sm mb-1">Gamer Design</h3>
-                <p class="text-[11px] opacity-60 leading-relaxed">A soft, gacha-inspired gaming portfolio concept.</p>
-            </a>
-
-        </div>
-    </section>
-
     <section class="py-12 px-6 max-w-7xl mx-auto">
-        <h2 class="technical-header mb-8">experience_DataSheet.sys</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <h2 class="technical-header">experience_DataSheet.sys</h2>
+            <span class="text-[10px] opacity-40 uppercase tracking-widest">5 Roles // Scroll Or Use The Arrows</span>
+        </div>
+        <div id="experience" class="group-card">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 flex items-center justify-center bg-industrial-red/10">
+                    <i class="fas fa-briefcase text-sm text-industrial-red"></i>
+                </div>
+                <h3 class="font-black uppercase text-xs tracking-widest text-industrial-red">Work &amp; Leadership History</h3>
+                <span class="flex-1 h-px bg-industrial-red/20"></span>
+                <span class="text-[10px] opacity-40 uppercase font-bold whitespace-nowrap">5 Roles</span>
+                <button type="button" class="group-nav" data-track-prev aria-label="Scroll Experience left"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="group-nav" data-track-next aria-label="Scroll Experience right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="group-scroller">
+                <div class="group-track">
+
+           <div class="industrial-card p-6 group">
+              <div class="w-12 h-12 flex items-center justify-center bg-industrial-red/10 mb-4 transition-colors group-hover:bg-industrial-red">
+                  <i class="fas fa-print text-xl text-industrial-red group-hover:text-white"></i>
+              </div>
+              <h3 class="font-black uppercase text-sm mb-1">Graduate Engineer Trainee</h3>
+              <p class="text-xs opacity-60 italic mb-1">(Apr 2026 – Oct 2026)</p>
+
+              <h4 class="font-black uppercase text-xs mb-1 text-industrial-red">PCSIR, Peshawar:</h4>
+              <ul class="list-disc list-inside space-y-2 text-xs opacity-70">
+                  <li>Operating FDM 3D printers — operations, functions, and project-related tasks.</li>
+                  <li>Working in the CNC workstation on calibration, maintenance, and observation of VMC machines.</li>
+              </ul>
+          </div>
+
            <div class="industrial-card p-6 group">
               <div class="w-12 h-12 flex items-center justify-center bg-industrial-orange/10 mb-4 transition-colors group-hover:bg-industrial-orange">
                   <i class="fas fa-drafting-compass text-xl text-industrial-orange group-hover:text-white"></i>
@@ -402,7 +155,7 @@
                           <li>Developed a detailed implementation plan to reduce process bottlenecking.</li>
                       </ul>
                          </div>
-                         <a href="./vid/index.html" class="inline-block">
+                         <a href="./Assets/vid/index.html" class="inline-block">
                             <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-orange"></i>
                         </a>
                         </div>
@@ -424,55 +177,1701 @@
                 </div>
             </div>
         </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-12">
-        <div class="flex justify-between items-center mb-8">
-            <h2 class="technical-header">CERTIFICATION_ARCHIVE.SYS</h2>
+    <section class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <h2 class="technical-header">Credentials_Archive.db</h2>
             <div class="flex gap-2">
-                <button id="prevBtn" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
-                <button id="nextBtn" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+                <button id="prevBtn" type="button" class="nav-btn" aria-label="Scroll certifications left"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn" type="button" class="nav-btn" aria-label="Scroll certifications right"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-    
-        <div class="cert-track" id="certTrack">
-            <div class="cert-item industrial-card p-6 group">
-                <div class="w-10 h-10 mb-4 flex items-center justify-center bg-purple-500/10 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                    <i class="fas fa-brain"></i>
+        <p class="text-[10px] opacity-40 uppercase tracking-widest mb-2">36 Industrial-Related Certifications // Scroll or use arrows &middot; <a href="./Assets/Certifications/Imaad_Yameen_Certifications.pdf" target="_blank" rel="noopener" class="text-industrial-orange hover:underline normal-case font-bold">Download the full PDF &rarr;</a></p>
+
+        <div class="cert-archive">
+            <div class="cert-track" id="certTrack">
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-maroon"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Climate &amp; Sustainability</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Climate Risk Screening for Development Planning</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Pakistan Engineering Council</p>
                 </div>
-                <h3 class="font-black uppercase text-sm mb-1">NVIDIA DLI</h3>
-                <p class="text-[11px] opacity-60 uppercase mb-4 tracking-tighter">Deep Learning Institute</p>
-                <span class="text-[10px] font-bold text-purple-500 uppercase tracking-widest">[ AI_ACCEL_ACTIVE ]</span>
-            </div>
-    
-            <div class="cert-item industrial-card p-6 group">
-                <div class="w-10 h-10 mb-4 flex items-center justify-center bg-green-500/10 text-green-500 group-hover:bg-green-500 group-hover:text-white transition-colors">
-                    <i class="fas fa-hard-hat"></i>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-maroon"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Climate &amp; Sustainability</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Climate Risk Assessment and Resilience Planning</h4>
+                    <p class="text-[10px] opacity-60 uppercase">National Productivity Organization</p>
                 </div>
-                <h3 class="font-black uppercase text-sm mb-1">OSHA Standards</h3>
-                <p class="text-[11px] opacity-60 uppercase mb-4 tracking-tighter">Occupational Health & Safety</p>
-                <span class="text-[10px] font-bold text-green-500 uppercase tracking-widest">[ SAFETY_PRIORITY ]</span>
-            </div>
-    
-            <div class="cert-item industrial-card p-6 group">
-                <div class="w-10 h-10 mb-4 flex items-center justify-center bg-industrial-orange/10 text-industrial-orange group-hover:bg-industrial-orange group-hover:text-white transition-colors">
-                    <i class="fas fa-cube"></i>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-skyblue"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Supply Chain</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Sustainable Supply Chain Management</h4>
+                    <p class="text-[10px] opacity-60 uppercase">National Productivity Organization</p>
                 </div>
-                <h3 class="font-black uppercase text-sm mb-1">SolidWorks Prof.</h3>
-                <p class="text-[11px] opacity-60 uppercase mb-4 tracking-tighter">Mechanical CAD Design</p>
-                <span class="text-[10px] font-bold text-industrial-orange uppercase tracking-widest">[ CSWP_CANDIDATE ]</span>
-            </div>
-    
-            <div class="cert-item industrial-card p-6 group">
-                <div class="w-10 h-10 mb-4 flex items-center justify-center bg-industrial-orange/10 text-industrial-orange group-hover:bg-industrial-orange group-hover:text-white transition-colors">
-                    <i class="fas fa-certificate"></i>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-maroon"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Climate &amp; Sustainability</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Life Cycle Assessment</h4>
+                    <p class="text-[10px] opacity-60 uppercase">National Productivity Organization</p>
                 </div>
-                <h3 class="font-black uppercase text-sm mb-1">SolidWorks Assoc.</h3>
-                <p class="text-[11px] opacity-60 uppercase mb-4 tracking-tighter">Dassault Systèmes</p>
-                <span class="text-[10px] font-bold text-industrial-orange uppercase tracking-widest">[ CSWA_ACTIVE ]</span>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-blue"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Quality Management</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">ISO 9001 QMS for SMEs</h4>
+                    <p class="text-[10px] opacity-60 uppercase">National Productivity Organization</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-red"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Structural Design</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Master Structural Design of Buildings</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Yeforum Group</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-green"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Manufacturing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">SLA 3D Printing</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Sinterit</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Essence of Lean Six Sigma</h4>
+                    <p class="text-[10px] opacity-60 uppercase">BGMC Group</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-blue"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Quality Management</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Essence of 8D Problem Solving</h4>
+                    <p class="text-[10px] opacity-60 uppercase">BGMC Group</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Lean Six Sigma Statistics in Manufacturing</h4>
+                    <p class="text-[10px] opacity-60 uppercase">BGMC Group</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Lean Six Sigma for Industrial Professionals</h4>
+                    <p class="text-[10px] opacity-60 uppercase">BGMC Group</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-green"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">CAD Designing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Solidworks MasterClass</h4>
+                    <p class="text-[10px] opacity-60 uppercase">BGMC Group</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Certified Lean Six Sigma White Belt</h4>
+                    <p class="text-[10px] opacity-60 uppercase">BGMC Group</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-skyblue"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Supply Chain</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Introduction to Supply Chain</h4>
+                    <p class="text-[10px] opacity-60 uppercase">uttana Online Leadership Learning</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-yellow"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Manufacturing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Lean Fundamentals</h4>
+                    <p class="text-[10px] opacity-60 uppercase">uttana Online Leadership Learning</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-yellow"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Manufacturing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Introduction to 5S Concept</h4>
+                    <p class="text-[10px] opacity-60 uppercase">uttana Online Leadership Learning</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-yellow"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Manufacturing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Total Productive Maintenance</h4>
+                    <p class="text-[10px] opacity-60 uppercase">uttana Online Leadership Learning</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-yellow"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Manufacturing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">The Lean Committee</h4>
+                    <p class="text-[10px] opacity-60 uppercase">uttana Online Leadership Learning</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-yellow"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Manufacturing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Single Minute Exchange of Die (SMED)</h4>
+                    <p class="text-[10px] opacity-60 uppercase">uttana Online Leadership Learning</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-yellow"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Manufacturing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Value Stream Mapping (VSM)</h4>
+                    <p class="text-[10px] opacity-60 uppercase">uttana Online Leadership Learning</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-green"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">CAD Designing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">SOLIDWORKS Advanced Sketching &amp; Reference Geometry</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Dassault Systemes</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Six Sigma Yellow Belt</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Kennesaw State University</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Six Sigma Tools for Improve and Control</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Kennesaw State University</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-indigo"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Project Management</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Agile Project Management</h4>
+                    <p class="text-[10px] opacity-60 uppercase">HP LIFE</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-blue"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Quality Management</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">ISO 9001:2015</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Alison</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Six Sigma Tools for Define and Measure</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Kennesaw State University</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Six Sigma Principles</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Kennesaw State University</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-purple"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Enterprise Systems</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Becoming an SAP Professional</h4>
+                    <p class="text-[10px] opacity-60 uppercase">SAP</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-skyblue"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Supply Chain</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Supply Chain Planning</h4>
+                    <p class="text-[10px] opacity-60 uppercase">UC Irvine</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-orange"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Lean Six Sigma</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Six Sigma Tools for Analyze</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Kennesaw State University</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-green"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">CAD Designing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">SOLIDWORKS Foundations: Sketching &amp; Extrusion</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Dassault Systemes</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-purple"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Automation &amp; Robotics</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">How to Get Into Robotics</h4>
+                    <p class="text-[10px] opacity-60 uppercase">University of Leeds</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-purple"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">UAV Management</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Drones for Environmental Science</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Duke University</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-purple"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Simulation &amp; Analysis</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">FEM - Linear, Nonlinear Analysis &amp; Post-Processing</h4>
+                    <p class="text-[10px] opacity-60 uppercase">Coursera</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-green"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Manufacturing</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">3D Printing</h4>
+                    <p class="text-[10px] opacity-60 uppercase">HP LIFE</p>
+                </div>
+                <div class="industrial-card cert-item p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <i class="fas fa-certificate text-industrial-red"></i>
+                        <span class="text-[8px] opacity-40 uppercase font-bold">Safety Standards</span>
+                    </div>
+                    <h4 class="font-black uppercase text-xs mb-1">Health and Safety</h4>
+                    <p class="text-[10px] opacity-60 uppercase">TSTDC</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <div class="max-w-7xl mx-auto px-6">
+        <a href="Assets/resume/cv.html" target="_blank" class="industrial-card p-8 flex items-center justify-between group">
+            <div class="flex items-center gap-4">
+                <i class="fas fa-file-pdf text-3xl text-red-600"></i>
+                <div>
+                    <h4 class="font-black uppercase text-lg mb-1">Full_Resume_2026</h4>
+                    <p class="text-[11px] opacity-50 uppercase tracking-tighter">Academic & Professional History</p>
+                </div>
+            </div>
+            <i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition-opacity text-industrial-orange"></i>
+        </a>
+    </div>
+
+    <section id="projects" class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-8">
+            <h2 class="technical-header">Live_Project_Modules.sys</h2>
+            <span class="text-[10px] opacity-40 uppercase tracking-widest">AI · GIS · Mechanical · Creative // Scroll Or Use The Arrows</span>
+        </div>
+
+        <!-- AI Projects -->
+        <div id="projects-ai" class="group-card mb-12">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 flex items-center justify-center bg-industrial-purple/10">
+                    <i class="fas fa-brain text-sm text-industrial-purple"></i>
+                </div>
+                <h3 class="font-black uppercase text-xs tracking-widest text-industrial-purple">AI Projects</h3>
+                <span class="flex-1 h-px bg-industrial-purple/20"></span>
+                <span class="text-[10px] opacity-40 uppercase font-bold whitespace-nowrap">4 Modules</span>
+                <button type="button" class="group-nav" data-track-prev aria-label="Scroll AI Projects left"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="group-nav" data-track-next aria-label="Scroll AI Projects right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="text-[11px] opacity-60 leading-relaxed mb-4 max-w-3xl">Four labs that run entirely in your browser -- every computation is plain JavaScript, nothing is uploaded anywhere.</p>
+            <div class="group-scroller">
+                <div class="group-track">
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-purple" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-purple/10 transition-colors group-hover:bg-industrial-purple">
+                                <i class="fas fa-chart-line text-xl text-industrial-purple group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Forecasting Lab</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Regression and a real backprop neural net -- fits and forecasts in plain JS, 100% local.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Linear, weighted, and polynomial (degree 2/3) regression</li>
+                                    <li>A real backprop-trained neural network (1 -&gt; N tanh -&gt; 1)</li>
+                                    <li>"Compare All Models" side by side on your own data or CSV</li>
+                                    <li>R-squared, RMSE, MAE, a forward forecast and a train/test self-test</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">JavaScript</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">No Dependencies</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">Offline</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/AI/Forecast Models/Lab.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-purple hover:underline">Open Forecasting Lab</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-purple" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-purple/10 transition-colors group-hover:bg-industrial-purple">
+                                <i class="fas fa-image text-xl text-industrial-purple group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Image Lab</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">From-scratch k-means colour extraction and a pixel-filter editor, on your own image.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Live brightness / contrast / blur with a real-time RGB histogram</li>
+                                    <li>k-means colour extraction written from scratch over the pixel data</li>
+                                    <li>Pixel-filter &amp; convolution editor -- grayscale, Sobel edges, sharpen, crop</li>
+                                    <li>A tiny coordinate MLP trained live by hand-written backprop</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">Canvas</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">k-means</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">Convolution</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/AI/Image Models/Lab.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-purple hover:underline">Open Image Lab</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-purple" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-purple/10 transition-colors group-hover:bg-industrial-purple">
+                                <i class="fas fa-comment-dots text-xl text-industrial-purple group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">NLP Lab</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Sentiment, keywords and a Humanizer -- with Slicer tagging grammar behind it.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Lexicon-based sentiment scoring, keyword extraction and text stats</li>
+                                    <li>Humanizer -- rewrites stock AI-sounding phrasing on the page</li>
+                                    <li>Slicer runs behind the Humanizer: word-class + tense tagging, no UI of its own</li>
+                                    <li>A bitmap OCR extractor and a sentiment self-test</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">NLTK</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">Python CLI</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">Zero Downloads</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/AI/NLP Models/Lab.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-purple hover:underline">Open NLP Lab</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-purple" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-purple/10 transition-colors group-hover:bg-industrial-purple">
+                                <i class="fas fa-file-lines text-xl text-industrial-purple group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Resume &amp; CV Builder</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">One form, ten live document previews side by side, print straight to PDF.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>10 live previews: Resume, CV, Cover Letter, ATS, Europass, Japanese, Spanish, French, Russian, German</li>
+                                    <li>Full-screen edit + preview mode while you type</li>
+                                    <li>Autosaved draft, print-to-PDF, and JSON export/import</li>
+                                    <li>A Python CLI (Printer.py) formats the identical draft outside the browser</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">10 Formats</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">Print-to-PDF</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-purple/10 text-industrial-purple">Autosave</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/AI/Resume,CV &amp; Cover Letter/Index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-purple hover:underline">Open Resume Builder</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIS Projects -->
+        <div id="projects-gis" class="group-card mb-12">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 flex items-center justify-center bg-industrial-skyblue/10">
+                    <i class="fas fa-globe text-sm text-industrial-skyblue"></i>
+                </div>
+                <h3 class="font-black uppercase text-xs tracking-widest text-industrial-skyblue">GIS Projects</h3>
+                <span class="flex-1 h-px bg-industrial-skyblue/20"></span>
+                <span class="text-[10px] opacity-40 uppercase font-bold whitespace-nowrap">6 Modules</span>
+                <button type="button" class="group-nav" data-track-prev aria-label="Scroll GIS Projects left"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="group-nav" data-track-next aria-label="Scroll GIS Projects right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="text-[11px] opacity-60 leading-relaxed mb-4 max-w-3xl">Google Earth Engine work and remote-sensing coursework for PEW-105 (Geoinformatics), built individually and under the project name "AI GEO Navigators".</p>
+            <div class="group-scroller">
+                <div class="group-track">
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-skyblue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-skyblue/10 transition-colors group-hover:bg-industrial-skyblue">
+                                <i class="fas fa-water text-xl text-industrial-skyblue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">KP Marble Slurry Risk Portal</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Capstone -- Sentinel-2 indices and Random Forest flag contamination risk across 7 marble clusters.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Screens 7 verified marble-processing clusters across 6 districts of Khyber Pakhtunkhwa</li>
+                                    <li>NDVI, NDWI, NDBI and a custom Slurry Index feed a Random Forest classifier</li>
+                                    <li>2018-2026 per-pixel trend model flags sites with a rising accumulation trajectory</li>
+                                    <li>Quantifies candidate contamination area within 100 m and 500 m buffers</li>
+                                    <li>A first-pass screening tool that flags sites for field verification -- not a determination</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Sentinel-2</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Random Forest</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Earth Engine</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="https://gen-lang-client-0708738053.projects.earthengine.app/view/kp-marble-slurry-risk-portal" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">Open Live Web App</a>
+                                    <a href="https://code.earthengine.google.com/53ceb55f65d76055eb1951d913ea1c8d" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">Earth Engine Script</a>
+                                    <a href="./Assets/Projects/GIS/FInal Project/PEW-105,Imaad_Ullah_Khan_Yameen,Peshawar.pdf" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">Full Report (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-skyblue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-skyblue/10 transition-colors group-hover:bg-industrial-skyblue">
+                                <i class="fas fa-temperature-three-quarters text-xl text-industrial-skyblue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Land Surface Temp vs. Population</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Earth Engine app comparing surface-temperature patterns against population density, nationwide.</p>
+                        <div class="card-expand">
+                            <div>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Earth Engine</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">LST</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Pakistan</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="https://task-2-503706.projects.earthengine.app/view/pakistan-lst-vs-population" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">Open Live App</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-skyblue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-skyblue/10 transition-colors group-hover:bg-industrial-skyblue">
+                                <i class="fas fa-triangle-exclamation text-xl text-industrial-skyblue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Peshawar Multi-Hazard Assessment</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Interactive hazard-exposure app layering multiple environmental risk indicators for Peshawar.</p>
+                        <div class="card-expand">
+                            <div>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Earth Engine</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Multi-Hazard</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="https://task-2-503706.projects.earthengine.app/view/peshawar-multi---hazard-assessment" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">Open Live App</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-skyblue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-skyblue/10 transition-colors group-hover:bg-industrial-skyblue">
+                                <i class="fas fa-layer-group text-xl text-industrial-skyblue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Land Use / Land Cover of Pakistan</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Nationwide LULC classification published as a live Earth Engine app, full script included.</p>
+                        <div class="card-expand">
+                            <div>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">LULC</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Classification</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="https://task-2-503706.projects.earthengine.app/view/lulc-of-pakistan" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">Open Live App</a>
+                                    <a href="https://code.earthengine.google.com/6f1daf5a2b6f6c185dc52be086c6b5a4" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">View Script</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-skyblue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-skyblue/10 transition-colors group-hover:bg-industrial-skyblue">
+                                <i class="fas fa-map text-xl text-industrial-skyblue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Pakistan Population Index Map</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Cartographic composition of boundaries, hydrology and raster population data, built in ArcMap.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>National, provincial and district boundaries with hydrology and raster population data</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">ArcMap</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Cartography</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/GIS/Task%231/PEW-105,Task%231.pdf" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">View Report (PDF)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-skyblue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-skyblue/10 transition-colors group-hover:bg-industrial-skyblue">
+                                <i class="fas fa-square-root-variable text-xl text-industrial-skyblue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Environmental Regression Modelling</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Ridge, Lasso, Random Forest and Gradient Boosting over PEW-105 field survey data.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Python/Colab notebook applied to field survey data collected in Peshawar</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Python</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">scikit-learn</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-skyblue/10 text-industrial-skyblue">Colab</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="https://colab.research.google.com/drive/1a4qNw_fQ7XJKFo8fvQU_icd2I4eygvCB?usp=sharing" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-skyblue hover:underline">Open Notebook</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mechanical Projects -->
+        <div id="projects-mechanical" class="group-card mb-12">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 flex items-center justify-center bg-industrial-blue/10">
+                    <i class="fas fa-ruler-combined text-sm text-industrial-blue"></i>
+                </div>
+                <h3 class="font-black uppercase text-xs tracking-widest text-industrial-blue">Mechanical Projects</h3>
+                <span class="flex-1 h-px bg-industrial-blue/20"></span>
+                <span class="text-[10px] opacity-40 uppercase font-bold whitespace-nowrap">8 Modules</span>
+                <button type="button" class="group-nav" data-track-prev aria-label="Scroll Mechanical Projects left"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="group-nav" data-track-next aria-label="Scroll Mechanical Projects right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="text-[11px] opacity-60 leading-relaxed mb-4 max-w-3xl">66 real SolidWorks files with a live in-browser 3D STL viewer -- from multi-part assemblies through to generated CAM toolpaths.</p>
+            <div class="group-scroller">
+                <div class="group-track">
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-blue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
+                                <i class="fas fa-pen-ruler text-xl text-industrial-blue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">2D Pen Plotter</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">X/Y motion rig on a linear rail -- multi-part SolidWorks assembly, STL-verified print fit.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Linear rail, dry-link bearings and a cable-management holder</li>
+                                    <li>Modelled as a multi-part assembly with matched STL exports</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Assembly.SLDASM</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Drylink Bearing</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">RAil.SLDPRT</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Mechanical/viewer.html?model=CAD/2D%20Plotter%20Machine/Drylink%20Bearing.STL&amp;title=2D%20Pen%20Plotter%20-%20Dry-Link%20Bearing" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">View in 3D</a>
+                                    <a href="./Assets/Projects/Mechanical/CAD/Source Files/2d plotter - Source Files.zip" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">Download SolidWorks Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-blue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
+                                <i class="fas fa-recycle text-xl text-industrial-blue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Desktop Filament Recycler</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">42-part FDM recycling machine -- planetary-gear extruder train, every part CAM-toolpathed.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Body panels, planetary gear-driven extruder train, spool and guide system, control housing</li>
+                                    <li>42 parts modelled and exported for print, each with its own generated CAM toolpath</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">42 Parts</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Front_body.stl</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Worm_gear.stl</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Mechanical/viewer.html?model=CAD/Recycler/Front_body.stl&amp;title=Desktop%20Filament%20Recycler%20-%20Front%20Body" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">View in 3D</a>
+                                    <a href="./Assets/Projects/Mechanical/CAD/Recycler/Front_body.stl" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">Download STL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-blue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
+                                <i class="fas fa-arrows-to-dot text-xl text-industrial-blue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Filament Gate Assembly</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">The four-part Base / Guider / Lower / Upper mechanism controlling filament path into the extruder.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Designed as a four-part assembly with matched print exports</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Filament Gate.SLDASM</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">4 Parts</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Mechanical/viewer.html?model=CAD/Freelance/Filament%20Gate%20-%20Filament%20Gate%20Base-1-1.STL&amp;title=Filament%20Gate%20Assembly%20-%20Base" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">View in 3D</a>
+                                    <a href="./Assets/Projects/Mechanical/CAD/Source Files/Data0.rar" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">Download SolidWorks Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-blue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
+                                <i class="fas fa-shapes text-xl text-industrial-blue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">PCSIR Injection Mold Design</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Core/cavity mold design for a sink component, engineered for PCSIR with a 2022 revision pass.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Direct continuation of injection-mold design work from SK Engineering</li>
+                                    <li>Delivered as STEP, SLDPRT and Parasolid (.x_t)</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">STEP</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Parasolid</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">2 Revisions</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Mechanical/viewer.html?model=CAD/Sink%20Mold%20Project/low%20sldp.STL&amp;title=PCSIR%20Sink%20Mold%20-%20Lower%20Cavity" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">View in 3D</a>
+                                    <a href="./Assets/Projects/Mechanical/CAD/Source Files/Juniors - Source Files.zip" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">Download STEP / SLDPRT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-blue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
+                                <i class="fas fa-vial text-xl text-industrial-blue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Material Testing Specimens (DfAM)</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Tensile, compression, bending and infill coupons -- the CAE step closing CAD into CAM.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>3D-printed to validate material and infill behaviour before full-scale manufacture</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Tensile</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Compression</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Bending</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Infill</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Mechanical/viewer.html?model=CAD/Freelance/Tensile%20Test.STL&amp;title=Tensile%20Test%20Specimen" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">View in 3D</a>
+                                    <a href="./Assets/Projects/Mechanical/CAD/Freelance/Compression Test.STL" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">Download Compression Test</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-blue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
+                                <i class="fas fa-sliders text-xl text-industrial-blue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Slicer Lab</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">A real G-code analyzer, material advisor and filament cost calculator, running offline.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Reads actual PrusaSlicer summary stats out of five real .gcode files, or any file you pick</li>
+                                    <li>Runs entirely in your browser, with a Python CLI companion</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">G-code</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Offline Tool</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">Python CLI</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Mechanical/CAM/Slicer/Index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">Open Slicer Lab</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-blue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
+                                <i class="fas fa-industry text-xl text-industrial-blue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Manufacturing &amp; CAM Output</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Modelling is half the job -- 65 generated toolpaths across four print materials.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>CAM toolpaths generated (G-code): 65</li>
+                                    <li>Print materials used: PLA / PETG / TPU / FLEX</li>
+                                    <li>Mold design revisions (PCSIR): 2</li>
+                                    <li>CNC reference documents compiled: 6+</li>
+                                    <li>Batched across print beds by material and print time to keep each run predictable</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">65 Toolpaths</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">PLA / PETG / TPU / FLEX</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Mechanical/CAM/Slicer/Index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">Analyze the G-code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-blue" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-blue/10 transition-colors group-hover:bg-industrial-blue">
+                                <i class="fas fa-cube text-xl text-industrial-blue group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Component Gallery</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Eight standalone parts -- smaller in scope, still real geometry.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Attar Box Holder -- product-design holder for a perfume-oil tester bottle</li>
+                                    <li>TV Corner Bracket -- load-bearing mount, modelled and print-tested</li>
+                                    <li>Stamp Maker Head -- custom stamp geometry for a prototyping project</li>
+                                    <li>Bed Plate, Threaded Rod, 24-Tooth Gear, 12-Tooth Gear Shaft, Laser-Cut Enclosure (DXF)</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">8 Parts</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-blue/10 text-industrial-blue">STL / IGES / DXF</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Mechanical/viewer.html?model=CAD/Attar%20Box/Holder.STL&amp;title=Attar%20Box%20-%20Holder" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">View Attar Box Holder in 3D</a>
+                                    <a href="./Assets/Projects/Mechanical/viewer.html?model=CAD/Freelance/tv%20corner%20brackets.STL&amp;title=TV%20Corner%20Bracket" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">View TV Corner Bracket in 3D</a>
+                                    <a href="./Assets/Projects/Mechanical/viewer.html?model=CAD/Freelance/Stamp%20Musk.STL&amp;title=Stamp%20Maker%20Head" class="text-[10px] font-black uppercase tracking-widest text-industrial-blue hover:underline">View Stamp Maker Head in 3D</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creative Projects -->
+        <div id="projects-creative" class="group-card mb-4">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 flex items-center justify-center bg-industrial-yellow/10">
+                    <i class="fas fa-cubes text-sm text-industrial-yellow"></i>
+                </div>
+                <h3 class="font-black uppercase text-xs tracking-widest text-industrial-yellow">Creative Projects</h3>
+                <span class="flex-1 h-px bg-industrial-yellow/20"></span>
+                <span class="text-[10px] opacity-40 uppercase font-bold whitespace-nowrap">3 Modules</span>
+                <button type="button" class="group-nav" data-track-prev aria-label="Scroll Creative Projects left"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="group-nav" data-track-next aria-label="Scroll Creative Projects right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="text-[11px] opacity-60 leading-relaxed mb-4 max-w-3xl">Interactive 3D built with Three.js, plus the graphic and motion design side.</p>
+            <div class="group-scroller">
+                <div class="group-track">
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-yellow" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-yellow/10 transition-colors group-hover:bg-industrial-yellow">
+                                <i class="fas fa-cube text-xl text-industrial-yellow group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Interactive 3D World</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Navigable low-poly Three.js environment with a live day/night cycle.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Drive the camera with WASD, rotate with Q/E, click structures to reveal portfolio info</li>
+                                    <li>The sun and sky cycle in real time, synced to Pakistan Standard Time</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">Three.js</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">WebGL</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">Day/Night Cycle</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Creative/world.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-yellow hover:underline">Enter the World</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-yellow" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-yellow/10 transition-colors group-hover:bg-industrial-yellow">
+                                <i class="fas fa-couch text-xl text-industrial-yellow group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Isometric Portfolio Room</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Toon-shaded React + Three.js study room furnished with real CC0 models.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Bed, desk, bookcase, GPS globe and more -- every clickable object opens a real project</li>
+                                    <li>Runs entirely offline once served, no CDN calls</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">React</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">Three.js</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">Isometric</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Projects/Creative/room.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-yellow hover:underline">Enter the Room</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-yellow" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-yellow/10 transition-colors group-hover:bg-industrial-yellow">
+                                <i class="fas fa-palette text-xl text-industrial-yellow group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Graphic &amp; Motion Design</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Event branding and technical poster work from the IISE student chapter.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Managed visual identity and branding protocols for the IISE chapter at UET Peshawar (Jalozai)</li>
+                                    <li>High-fidelity design iterations for technical event posters and digital assets</li>
+                                    <li>Supervised finalization to keep materials aligned with society standards</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">Branding</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">Posters</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-yellow/10 text-industrial-yellow">Visual Identity</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/resume/cv.html" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-yellow hover:underline">See the Full CV</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies" class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-8">
+            <h2 class="technical-header">Off_The_Clock.sys</h2>
+            <span class="text-[10px] opacity-40 uppercase tracking-widest">Programming · DIY · E-Games // Scroll Or Use The Arrows</span>
+        </div>
+
+        <!-- Programming -->
+        <div id="hobbies-programming" class="group-card mb-12">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 flex items-center justify-center bg-industrial-indigo/10">
+                    <i class="fas fa-terminal text-sm text-industrial-indigo"></i>
+                </div>
+                <h3 class="font-black uppercase text-xs tracking-widest text-industrial-indigo">Programming</h3>
+                <span class="flex-1 h-px bg-industrial-indigo/20"></span>
+                <span class="text-[10px] opacity-40 uppercase font-bold whitespace-nowrap">5 Modules</span>
+                <button type="button" class="group-nav" data-track-prev aria-label="Scroll Programming left"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="group-nav" data-track-next aria-label="Scroll Programming right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="text-[11px] opacity-60 leading-relaxed mb-4 max-w-3xl">Real software rather than mockup screenshots: one full desktop business application, live public web projects, and a page of working code per language.</p>
+            <div class="group-scroller">
+                <div class="group-track">
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-indigo" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-indigo/10 transition-colors group-hover:bg-industrial-indigo">
+                                <i class="fas fa-database text-xl text-industrial-indigo group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Jhagra Atelier Ledger (ERP)</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">A full business-management desktop app built for a bespoke tailoring studio.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Tkinter desktop GUI talking to a local Flask API backend</li>
+                                    <li>Customer &amp; measurement records, staff/task allocation, order ledger with live status</li>
+                                    <li>Interactive donut gauges for Work Done / In Progress / Remaining</li>
+                                    <li>Multilingual UI: English, Urdu, Pashto, Chinese, Russian</li>
+                                    <li>bcrypt-secured auth, PDF export via ReportLab, unit-tested with pytest</li>
+                                    <li>Runs locally on Excel-backed storage -- no cloud database required</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">Python</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">Flask</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">Tkinter</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">bcrypt</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/Programming/lang/Python/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Python Page &amp; Screenshots</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Python/Assets/JTC App/Dark Mode 0.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Dashboard Screenshot</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-indigo" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-indigo/10 transition-colors group-hover:bg-industrial-indigo">
+                                <i class="fas fa-calendar-days text-xl text-industrial-indigo group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Horizon 2026 Calendar</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Celestial-themed calendar portal, deployed live on GitHub Pages.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Three.js starfield background with a real-time UTC clock</li>
+                                    <li>12 dedicated month pages with zodiac &amp; spirit-animal logic</li>
+                                    <li>Auto-cycling background imagery on a 60-second loop</li>
+                                    <li>Responsive grid interface using Lucide icons</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">HTML5</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">CSS Grid</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">Three.js</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="https://yameenimaad.github.io/Calendar/" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Open Live Site</a>
+                                    <a href="https://github.com/yameenimaad/Calendar" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">View Repo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-indigo" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-indigo/10 transition-colors group-hover:bg-industrial-indigo">
+                                <i class="fas fa-code text-xl text-industrial-indigo group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Py Compiler</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">A real compiler: lexer, recursive-descent parser, type inference, four code generators.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Translates a genuine subset of Python into working JavaScript, C, Java or Go</li>
+                                    <li>Python-correct % and // (sign-corrected, not copy-pasted operators)</li>
+                                    <li>Static type inference from usage -- catches mismatches at compile time</li>
+                                    <li>A SQL-backed "magic_lines" cache that skips the compiler on repeat input</li>
+                                    <li>A Python CLI (compiler_cli.py) mirrors the exact same algorithm</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">JavaScript</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">Python</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">SQL</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">Compilers</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/Programming/Py Compiler/Index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Open the Compiler</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-indigo" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-indigo/10 transition-colors group-hover:bg-industrial-indigo">
+                                <i class="fas fa-gamepad text-xl text-industrial-indigo group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Web Games Arcade</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Six games built from scratch on one shared canvas engine -- no framework, no network.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Flappy Bird, balloon shoot, lane racer, asteroid arena, tower defence, conveyor-sorting puzzle</li>
+                                    <li>One shared engine.js -- input, particles, synthesised sound, sprites</li>
+                                    <li>Sprites are strictly an upgrade: empty an Images/ folder and the procedural drawing returns</li>
+                                    <li>Runs offline straight from the folder</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">Canvas 2D</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">Web Audio</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">6 Games</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/Programming/Web Games/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Open the Arcade</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-indigo" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-indigo/10 transition-colors group-hover:bg-industrial-indigo">
+                                <i class="fas fa-layer-group text-xl text-industrial-indigo group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">12 Languages, One Page Each</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">A page per language with real working code, not a logo wall.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Arduino, Assembly, Bash, C++, Front-End Web, Go, Java, Kotlin, Python, Rust, SQL, Swift</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-indigo/10 text-industrial-indigo">12 Pages</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/Programming/lang/Arduino/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Arduino</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Assembly/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Assembly</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Bash/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Bash</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/C++/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">C++</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Front-End Web/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Front-End Web</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Go/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Go</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Java/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Java</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Kotlin/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Kotlin</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Python/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Python</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Rust/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Rust</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/SQL/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">SQL</a>
+                                    <a href="./Assets/Hobbies/Programming/lang/Swift/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-indigo hover:underline">Swift</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIY -->
+        <div id="hobbies-diy" class="group-card mb-12">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 flex items-center justify-center bg-industrial-green/10">
+                    <i class="fas fa-microchip text-sm text-industrial-green"></i>
+                </div>
+                <h3 class="font-black uppercase text-xs tracking-widest text-industrial-green">DIY</h3>
+                <span class="flex-1 h-px bg-industrial-green/20"></span>
+                <span class="text-[10px] opacity-40 uppercase font-bold whitespace-nowrap">3 Modules</span>
+                <button type="button" class="group-nav" data-track-prev aria-label="Scroll DIY left"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="group-nav" data-track-next aria-label="Scroll DIY right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="text-[11px] opacity-60 leading-relaxed mb-4 max-w-3xl">Embedded electronics -- control systems, sensor integration and responsive hardware communication.</p>
+            <div class="group-scroller">
+                <div class="group-track">
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-green" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-green/10 transition-colors group-hover:bg-industrial-green">
+                                <i class="fas fa-satellite-dish text-xl text-industrial-green group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">ESP32 Station</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">A real KiCad schematic -- a GPS-enabled sensor and telemetry station.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>ESP32-WROOM-32U at the core with an OLED display</li>
+                                    <li>NEO-M8T GPS/GNSS module for positioning</li>
+                                    <li>MPU6500 IMU and QMC5309 magnetometer for orientation</li>
+                                    <li>MPL3115A2R1 barometric sensor, microSD storage and EEPROM</li>
+                                    <li>USB-C with CH340C serial</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-green/10 text-industrial-green">KiCad</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-green/10 text-industrial-green">ESP32</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-green/10 text-industrial-green">GPS/GNSS</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-green/10 text-industrial-green">IMU</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/DIY/ESP_32_Station.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-green hover:underline">View the Schematic</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-green" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-green/10 transition-colors group-hover:bg-industrial-green">
+                                <i class="fas fa-gears text-xl text-industrial-green group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Automation Controller</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Device switching and logic-driven operations in industrial workflow setups.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Real-time control logic across switched devices</li>
+                                    <li>Built around microcontroller programming and sensor/data acquisition</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-green/10 text-industrial-green">Arduino</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-green/10 text-industrial-green">Control Logic</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/Programming/lang/Arduino/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-green hover:underline">Arduino Code Page</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-green" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-green/10 transition-colors group-hover:bg-industrial-green">
+                                <i class="fas fa-tower-broadcast text-xl text-industrial-green group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">IoT Monitoring Unit</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Connects hardware with cloud or local dashboards for live system feedback.</p>
+                        <div class="card-expand">
+                            <div>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>Sensor/data acquisition feeding a live dashboard</li>
+                                    <li>Responsive hardware communication for monitoring and alerting</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-green/10 text-industrial-green">IoT</span>
+                                    <span class="text-[8px] uppercase font-bold px-2 py-1 bg-industrial-green/10 text-industrial-green">Telemetry</span>
+                                </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/Programming/lang/Arduino/index.html" class="text-[10px] font-black uppercase tracking-widest text-industrial-green hover:underline">Arduino Code Page</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- E-Games -->
+        <div id="hobbies-egames" class="group-card mb-4">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 flex items-center justify-center bg-industrial-pink/10">
+                    <i class="fas fa-gamepad text-sm text-industrial-pink"></i>
+                </div>
+                <h3 class="font-black uppercase text-xs tracking-widest text-industrial-pink">E-Games</h3>
+                <span class="flex-1 h-px bg-industrial-pink/20"></span>
+                <span class="text-[10px] opacity-40 uppercase font-bold whitespace-nowrap">16 Modules</span>
+                <button type="button" class="group-nav" data-track-prev aria-label="Scroll E-Games left"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="group-nav" data-track-next aria-label="Scroll E-Games right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="text-[11px] opacity-60 leading-relaxed mb-4 max-w-3xl">Games I actually play, with my IDs so other players can add me. This is not a dev showcase -- the games I built live under Programming.</p>
+            <div class="group-scroller">
+                <div class="group-track">
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-fire text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Free Fire</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Garena · Battle Royale</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player UID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">2516418895</p>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/E-Games/Data/Free Fire/FreeFire.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot</a>
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Free%20Fire" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-wand-sparkles text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Genshin Impact</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">HoYoverse · Open-World RPG</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player UID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">853538615</p>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/E-Games/Data/Genshin Impact/In game Picture.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot 1</a>
+                                    <a href="./Assets/Hobbies/E-Games/Data/Genshin Impact/UID Genshin Impact.JPG" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot 2</a>
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Genshin%20Impact" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-water text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Wuthering Waves</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Kuro Games · Action RPG</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">User ID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">901129871</p>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/E-Games/Data/Wuthering Waves/WUWA In Game SS.PNG" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot 1</a>
+                                    <a href="./Assets/Hobbies/E-Games/Data/Wuthering Waves/WUWA in Game Screenshot.PNG" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot 2</a>
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Wuthering%20Waves" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-bolt text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Zenless Zone Zero</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">HoYoverse · Action RPG</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player UID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">1301976501</p>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/E-Games/Data/Zenless Zone Zero/ZenlessZoneZero InGame SS.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot</a>
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Zenless%20Zone%20Zero" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-wind text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Where Winds Meet</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">NetEase · Open-World Wuxia</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player ID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">0028345621</p>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/E-Games/Data/Where Winds Meet/WhereWIndsMeet Game SS.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot</a>
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Where%20Winds%20Meet" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-city text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Neverness to Everness</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Hotta Studio · Urban Fantasy</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player UID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">214296446473</p>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/E-Games/Data/Neverness to Everness/In Game SS.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot 1</a>
+                                    <a href="./Assets/Hobbies/E-Games/Data/Neverness to Everness/Login Screen.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot 2</a>
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Neverness%20to%20Everness" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-crosshairs text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Delta Force</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">TiMi Studio · Tactical Shooter</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player ID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/E-Games/Data/Delta Force/Delta Force Battle Result.png" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot</a>
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Delta%20Force" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-parachute-box text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">PUBG Mobile</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Level Infinite · Battle Royale</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player ID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="./Assets/Hobbies/E-Games/Data/PUBG Mobile/Erangel Map.jpg" target="_blank" rel="noopener" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">In-Game Screenshot</a>
+                                    <a href="mailto:yameenimaad@gmail.com?subject=PUBG%20Mobile" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-gun text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Call of Duty Mobile</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Activision · Shooter</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player ID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>No screenshots uploaded for this one yet.</li>
+                                </ul>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Call%20of%20Duty%20Mobile" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-train text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Honkai Star Rail</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">HoYoverse · Turn-Based RPG</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player UID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>No screenshots uploaded for this one yet.</li>
+                                </ul>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Honkai%20Star%20Rail" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-meteor text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Honkai Impact 3rd</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">HoYoverse · Action RPG</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player UID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>No screenshots uploaded for this one yet.</li>
+                                </ul>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Honkai%20Impact%203rd" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-chess-king text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Honor of Kings</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">TiMi Studio · MOBA</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player ID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>No screenshots uploaded for this one yet.</li>
+                                </ul>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Honor%20of%20Kings" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-chess-rook text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Clash of Clans</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Supercell · Base Builder</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player Tag</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>No screenshots uploaded for this one yet.</li>
+                                </ul>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Clash%20of%20Clans" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-crown text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Clash Royale</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Supercell · Card Battler</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player Tag</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>No screenshots uploaded for this one yet.</li>
+                                </ul>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Clash%20Royale" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-feather text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Ananta</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">NetEase · Open World</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player ID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>No screenshots uploaded for this one yet.</li>
+                                </ul>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Ananta" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card expand-card p-6 group border-l-4 border-industrial-pink" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-industrial-pink/10 transition-colors group-hover:bg-industrial-pink">
+                                <i class="fas fa-moon text-xl text-industrial-pink group-hover:text-white"></i>
+                            </div>
+                            <i class="fas fa-chevron-down expand-chevron text-[10px] opacity-30 mt-1"></i>
+                        </div>
+                        <h3 class="font-black uppercase text-sm mb-1">Duet Night Abyss</h3>
+                        <p class="text-[11px] opacity-60 leading-relaxed">Pan Studio · Action RPG</p>
+                        <div class="card-expand">
+                            <div>
+                                <p class="text-[9px] uppercase tracking-widest opacity-40 mb-1">Player ID</p>
+                                <p class="font-mono text-sm font-black text-industrial-pink mb-3 select-all">Coming soon</p>
+                                <ul class="list-disc list-inside space-y-1 text-[10px] opacity-70 mb-3">
+                                    <li>No screenshots uploaded for this one yet.</li>
+                                </ul>
+                                <div class="flex flex-col gap-1.5">
+                                    <a href="mailto:yameenimaad@gmail.com?subject=Duet%20Night%20Abyss" class="text-[10px] font-black uppercase tracking-widest text-industrial-pink hover:underline">Add Me / Get In Touch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback" class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <h2 class="technical-header">Visitor_Feedback.db</h2>
+            <span class="text-[10px] opacity-40 uppercase tracking-widest">Stored In Your Browser Only</span>
+        </div>
+        <p class="text-[11px] opacity-60 leading-relaxed mb-6 max-w-2xl">
+            This site is static — there's no server for a submission to land on the instant you click Submit, so your
+            feedback is saved to <strong>your own browser only</strong> (nothing is sent anywhere automatically). Use
+            "Email This to Imaad" or "Download as SQL" below to actually get it to him — the SQL export is real,
+            valid <code>INSERT</code> statements that
+            <a href="./Assets/Feedback/feedback_cli.py" class="text-industrial-orange hover:underline">feedback_cli.py</a>
+            imports straight into a local SQLite database.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+            <form id="feedback-form" class="industrial-card p-6 border-l-4 border-industrial-orange">
+                <div class="mb-4">
+                    <label class="block text-[10px] uppercase tracking-widest opacity-60 mb-2" id="feedback-rating-label">
+                        Rating <span class="text-industrial-orange">*</span>
+                    </label>
+                    <div class="flex gap-1" id="feedback-stars" role="radiogroup" aria-labelledby="feedback-rating-label">
+                        <button type="button" class="feedback-star text-2xl" data-value="1" role="radio" aria-checked="false" aria-label="1 star">★</button>
+                        <button type="button" class="feedback-star text-2xl" data-value="2" role="radio" aria-checked="false" aria-label="2 stars">★</button>
+                        <button type="button" class="feedback-star text-2xl" data-value="3" role="radio" aria-checked="false" aria-label="3 stars">★</button>
+                        <button type="button" class="feedback-star text-2xl" data-value="4" role="radio" aria-checked="false" aria-label="4 stars">★</button>
+                        <button type="button" class="feedback-star text-2xl" data-value="5" role="radio" aria-checked="false" aria-label="5 stars">★</button>
+                    </div>
+                    <input type="hidden" id="feedback-rating-value" name="rating" required />
+                </div>
+                <div class="mb-4">
+                    <label for="feedback-name" class="block text-[10px] uppercase tracking-widest opacity-60 mb-2">Name (optional)</label>
+                    <input type="text" id="feedback-name" maxlength="80"
+                        class="w-full bg-slate-100 dark:bg-slate-800 border border-industrial-steel/30 px-3 py-2 text-sm"
+                        placeholder="Anonymous is fine" />
+                </div>
+                <div class="mb-4">
+                    <label for="feedback-comment" class="block text-[10px] uppercase tracking-widest opacity-60 mb-2">
+                        Comment <span class="text-industrial-orange">*</span>
+                    </label>
+                    <textarea id="feedback-comment" required maxlength="1000" rows="4"
+                        class="w-full bg-slate-100 dark:bg-slate-800 border border-industrial-steel/30 px-3 py-2 text-sm"
+                        placeholder="What worked, what didn't, what you'd add..."></textarea>
+                </div>
+                <p id="feedback-error" class="text-[11px] text-red-500 mb-3" hidden></p>
+                <button type="submit" class="nav-btn w-full sm:w-auto">Submit Feedback</button>
+            </form>
+
+            <div class="industrial-card p-6 border-l-4 border-industrial-blue">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-black uppercase text-xs tracking-widest text-industrial-blue">Your Feedback (This Browser)</h3>
+                    <span id="feedback-count" class="text-[10px] opacity-40 uppercase font-bold">0 entries</span>
+                </div>
+                <ul id="feedback-list" class="space-y-3 mb-4 max-h-80 overflow-y-auto"></ul>
+                <p id="feedback-empty" class="text-[11px] opacity-50 mb-4">
+                    Nothing submitted from this browser yet.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <button type="button" id="feedback-email" class="nav-btn flex-1" disabled>Email This to Imaad</button>
+                    <button type="button" id="feedback-download" class="nav-btn flex-1" disabled>Download as SQL</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="mt-20 py-12 px-6 border-t-4 border-industrial-steel bg-slate-900 text-slate-400">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-8 mb-8">
@@ -482,21 +1881,27 @@
                         Industrial Engineering Graduate // Mechanical Designer // Automation Specialist.
                     </p>
                 </div>
-                <div class="flex md:justify-end gap-6 text-sm">
+                <div class="flex flex-wrap md:justify-end gap-x-6 gap-y-2 text-sm">
                     <a href="https://www.linkedin.com/in/imaad-ullah-khan-yameen/" class="hover:text-white transition-colors uppercase font-bold text-[10px]">LinkedIn</a>
                     <a href="https://github.com/yameenimaad/Porfolio_IUKY" class="hover:text-white transition-colors uppercase font-bold text-[10px]">GitHub</a>
                     <a href="mailto:yameenimaad@gmail.com" class="hover:text-white transition-colors uppercase font-bold text-[10px]">Email_Terminal</a>
                 </div>
-                <div class="flex md:justify-end gap-6 text-sm">
-                    <a href="./Portfoilos/Programming/index.html" class="hover:text-white transition-colors uppercase font-bold text-[10px]">Programming_Portfolio</a>
-                    <a href="./Portfoilos/Gamer/index.html" class="hover:text-white transition-colors uppercase font-bold text-[10px]">Gamer_Portfolio</a>
-                    <a href="./Portfoilos/3D,Website &amp; Graphics/index.html" class="hover:text-white transition-colors uppercase font-bold text-[10px]">Creative_3D_Portfolio</a>
-                    <a href="./Portfoilos/CADCAMCAE/index.html" class="hover:text-white transition-colors uppercase font-bold text-[10px]">CAD/CAM/CAE_Portfolio</a>
-                    <a href="./Portfoilos/AI ,ML/ML/index.html" class="hover:text-white transition-colors uppercase font-bold text-[10px]">AI/ML_Portfolio</a>
-                    <a href="./Portfoilos/Embeded Systems &amp; Circuitry/index.html" class="hover:text-white transition-colors uppercase font-bold text-[10px]">Embeded_Systems_Portfolio</a>
-                    <a href="./Portfoilos/GIS, remote sensing/index.html" class="hover:text-white transition-colors uppercase font-bold text-[10px]">GIS_Portfolio</a>
-                </div>
+                
                 <div class="md:col-span-2 mt-6">
+                    <a href="./Assets/Claude Code/index.html" class="industrial-card group block p-5 border-l-4 border-industrial-brown !bg-slate-800/60 !border-t-slate-700 !border-r-slate-700 !border-b-slate-700">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-industrial-brown/20 transition-colors group-hover:bg-industrial-brown">
+                                <i class="fas fa-robot text-industrial-brown group-hover:text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-white font-black uppercase text-[11px] tracking-widest mb-1">Built with Claude Code</p>
+                                <p class="text-[10px] leading-relaxed opacity-60">An honest build log of what my AI pair-programmer actually contributed to this site — including the parts it got wrong.</p>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square text-industrial-brown opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="md:col-span-2 mt-2">
                     <p class="text-[10px] opacity-50 uppercase tracking-widest">
                         Disclaimer: This portfolio is a personal project and does not represent any official affiliation with the mentioned organizations. All content is for educational and demonstration purposes only.
                     </p>
@@ -504,64 +1909,19 @@
             </div>
             <div class="pt-8 border-t border-slate-800 text-[9px] flex flex-col md:flex-row justify-between gap-4 uppercase font-bold">
                 <p>© 2026 IMAAD ULLAH KHAN YAMEEN // ALL_SYSTEMS_OPERATIONAL</p>
-                <p>Build: v2.0.4-Stable // Encrypted_Static_Site</p>
+                <p>Build: v2.0.4-Stable // Encrypted_Static_Site </p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Real-time Clock Logic
-        function updatePKT() {
-            const clock = document.getElementById("pk-clock");
-            const now = new Date();
-            const time = new Intl.DateTimeFormat("en-US", {
-                timeZone: "Asia/Karachi",
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit",
-                hour12: false,
-            }).format(now);
-            clock.innerText = `PKT: ${time}`;
-        }
-        setInterval(updatePKT, 1000);
-        updatePKT();
-
-        // Theme Toggle Persistence
-        const btn = document.getElementById("theme-toggle");
-        const icon = document.getElementById("theme-icon");
-        const html = document.documentElement;
-
-        // Check for saved theme
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        btn.addEventListener("click", () => {
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.add('dark');
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-        const track = document.getElementById('certTrack');
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
-
-        // Amount to scroll per click (width of one card + gap)
-        const scrollAmount = 320; 
-
-        nextBtn.addEventListener('click', () => {
-            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        });
-
-        prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        });
-    </script>
+<div class="cookie-banner" id="cookieBanner">
+  <p>This site uses cookies to remember things like your saved settings in the interactive labs. Nothing is tracked and nothing is sent anywhere — it all stays in your browser.</p>
+  <div class="cookie-actions">
+    <button type="button" id="cookieDecline">Decline</button>
+    <button type="button" id="cookieAccept">Accept</button>
+  </div>
+</div>
+    <script src="Assets/js/main.js"></script>
+    <script src="Assets/js/feedback.js"></script>
 </body>
 </html>

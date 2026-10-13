@@ -1,20 +1,37 @@
 # [SYSTEM_LOG]: INDUSTRIAL_PORTFOLIO_V2
 **Operator:** Engr. Imaad Ullah Khan Yameen  
-**Link:** [https://yameenimaad.github.io/Porfolio_IUKY/](https://yameenimaad.github.io/Porfolio_IUKY/)
-
----
-
-
-
----
+**Link:** [https://danger-khan.github.io/Portfolio-IUKY/](https://danger-khan.github.io/Portfolio-IUKY/)
 
 ## 🛠️ TECHNICAL_SPECIFICATIONS
-This terminal is built to showcase high-efficiency engineering operations and CAD design capabilities.
+A single-page engineering site — every category lives as an expand-in-place
+card group under **Projects** (AI, GIS, Mechanical, Creative) or **Hobbies**
+(Programming, DIY, E-Games) on `index.html` itself, rather than as separate
+standalone portfolio pages. Real, working functionality throughout, not
+static mockups: an offline-first AI/ML lab (regression, image processing,
+NLP, a resume/CV/cover-letter builder in six formats including ATS,
+Europass and Japanese rirekisho), an in-browser CAD/CAM/CAE STL/G-code
+viewer, an embedded systems showcase, GIS work, a 12-language programming
+archive, a gaming card list with real player IDs, a Three.js creative/3D
+space, and an honest build log of using Claude Code on the site itself
+(linked from the footer).
+
+All of that category's own assets live under `Assets/Projects/` and
+`Assets/Hobbies/` — see each group's cards on the live site for the exact
+paths.
+
+The AI/ML lab alone bundles several small, genuinely-trained models rather
+than calling out to an API: from-scratch linear/polynomial/neural-net
+regression, k-means color extraction, lexicon-based sentiment analysis, a
+nearest-neighbor OCR classifier reading a hand-built bitmap font, a
+grammar-tagging "Slicer" with its own word-class lexicons, and a tiny
+coordinate MLP trained live in the browser via hand-written backpropagation.
 
 ### 🏗️ CORE_STACK
-- **Frontend:** HTML5 / Tailwind CSS (Industrial UI Kit)
-- **Logic:** JavaScript (Dynamic PKT Time-Sync & Theme Engine)
-- **Deployment:** GitHub Pages (Automated CI/CD)
+- **Frontend:** Hand-written HTML5 / CSS3 across most pages, Tailwind CSS on the hub and a few standalone tools
+- **Logic:** Vanilla JavaScript (ES6+) — regression engines, k-means color extraction, sentiment analysis, a coordinate-MLP image generator, nearest-neighbor OCR, and more, all built from scratch with zero external ML libraries
+- **3D:** Three.js (CAD/CAM/CAE STL viewer, the Creative/3D world)
+- **Companion tooling:** Python (CLI mirrors of nearly every browser tool — `Printer.py`, `backend.py`, `slicer_cli.py`, `editor_cli.py`, `generator_cli.py`, and more) and Perl (`extractor.pl`, a second independent OCR implementation), so the core logic is verifiable outside the browser too
+- **Deployment:** GitHub Pages, static — no build step
 
 ### 📊 OPERATIONAL_METRICS
 - **Academic:** 3.75/4.00 CGPA (UET Peshawar)
@@ -24,18 +41,10 @@ This terminal is built to showcase high-efficiency engineering operations and CA
 ---
 
 ## 📁 DOCUMENT_ARCHIVE
-The following technical records are accessible via the live dashboard:
-1. **Full_Resume_2026.pdf** - Professional IE Work History
-2. **Training_Credentials** - Multi-doc folder containing Lean & AI certifications
-3. **FYDP_Technical_Specs** - UAV Inventory Automation Project (3rd Position Awarded)
-
----
-
-## 📸 PROJECT_GALLERY
-
-![Technical Design](vid/FYDP.mp4)
-
----
+The following are accessible via the live dashboard:
+1. **[Resume / CV](./Assets/resume/cv.html)** — education, credentials & full work history, including all 67 verified certifications
+2. **[ATS Resume](./Assets/resume/ATS_Resume.html)** — A4, single-column, no vertical bars, formatted to pass applicant-tracking parsers
+3. **[FYDP — UAV Inventory Automation](./Assets/vid/index.html)** — the Final Year Design Project dashboard (3rd Position Awarded)
 
 ## 📟 CONTACT_ACCESS
 - **LinkedIn:** [Imaad Ullah Khan Yameen](https://www.linkedin.com/in/imaad-ullah-khan-yameen/)
